@@ -1,0 +1,121 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["stocks"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/Stock/AddEdit";
+}
+@await Html.PartialAsync("_PageHeaderPartial", title)
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-lg-4 mb-3">
+                <label for="inventoryItemFilter" class="form-label">@SharedHtmlLocalizer["Inventory Item"]<span class="text-danger">*</span> </label>
+                <select class="form-select" name="inventoryItemFilter" id="inventoryItemFilter" dir="ltr" aria-describedby="InventoryItem">
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        <table class="table align-middle mobile-optimised" id="datatable-stock-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo"]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Active"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["Unit"]</th>
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["Net Cost"]</th>
+                    <th data-priority="6" class="text-left">@SharedHtmlLocalizer["Company Margin"]</th>
+                    <th data-priority="7" class="text-left">@SharedHtmlLocalizer["Total Quantity"]</th>
+                    <th data-priority="8" class="text-left">@SharedHtmlLocalizer["Total Net Cost"]</th>
+                    <th data-priority="9" class="text-left">@SharedHtmlLocalizer["Total With Company Margin"]</th>
+                    <th data-priority="10" class="text-start">@SharedHtmlLocalizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+<div class="modal fade" id="update_stockModal" tabindex="-1" aria-labelledby="update_stockModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_stockModalLabel">@SharedHtmlLocalizer["Edit"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" value="" />
+                    <div class="row">
+                        @* <div class="mb-3">
+                            <label for="inventoryItemName" class="col-form-label">@SharedHtmlLocalizer["inventory_item_name"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="inventoryItemName" id="inventoryItemName" aria-describedby="InventoryItem Name" placeholder="Inventory Item Name" value="" required>
+                            <div class="invalid-feedback">Please enter inventory item name</div>
+                        </div> *@
+                        <div class="mb-3">
+                            <label for="unit" class="form-label">@SharedHtmlLocalizer["Unit"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="unit" id="unit" aria-describedby="Unit" placeholder="Unit" value="" required>
+                            <div class="invalid-feedback">Please enter unit</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="netUnitCost" class="form-label">@SharedHtmlLocalizer["Net Cost"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="netUnitCost" id="netUnitCost" aria-describedby="NetUnitCost" placeholder="Net Unit Cost" value="" required>
+                            <div class="invalid-feedback">Please enter net unit cost</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="companyCostMargin" class="form-label">@SharedHtmlLocalizer["Company Cost Margin"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="companyCostMargin" id="companyCostMargin" aria-describedby="CompanyCostMargin" placeholder="Company Cost Margin" value="" required>
+                            <div class="invalid-feedback">Please enter company cost margin</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalQuantity" class="form-label">@SharedHtmlLocalizer["Total Quantity"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="totalQuantity" id="totalQuantity" aria-describedby="TotalQuantity" placeholder="Total Quantity" value="" required>
+                            <div class="invalid-feedback">Please enter total quantity</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalUnitNetCost" class="form-label">@SharedHtmlLocalizer["Total Net Cost"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="totalUnitNetCost" id="totalUnitNetCost" aria-describedby="TotalUnitNetCost" placeholder="Total Unit Net Cost" value="" required>
+                            <div class="invalid-feedback">Please enter total unit net cost</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalUnitCompanyPrice" class="form-label">@SharedHtmlLocalizer["Total Net Cost With Company Margin"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="totalUnitCompanyPrice" id="totalUnitCompanyPrice" aria-describedby="TotalUnitCompanyPrice" placeholder="Total Unit Company Price" value="" required>
+                            <div class="invalid-feedback">Please enter total unit company price</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["Close"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/InventoryManagement/Stock/Stock_Datatable.js" asp-append-version="true"></script>

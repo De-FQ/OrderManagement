@@ -1,0 +1,73 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["Edit"].Value : @SharedHtmlLocalizer["Add"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <!-- Header Section with Import Button -->
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                    <!-- Excel File Input and Import Button -->
+                    <input type="file" id="priceTypeCategoryExcelFile" class="form-control me-2" accept=".xlsx, .xls">
+                    <button type="button" id="btnImport" class="btn btn-info" onclick="importPriceTypeCategories();">
+                        @SharedHtmlLocalizer["Import Excel"]
+                    </button>
+                </div>
+            </header>
+
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="childCategoryList" class="form-label">@SharedHtmlLocalizer["Child Category"]<span class="text-danger">*</span> </label>
+                            <select class="form-select" name="childCategoryList" id="childCategoryList" dir="ltr" aria-describedby="ChildCategory">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="priceTypeCategoryName" class="form-label">@SharedHtmlLocalizer["Name"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="priceTypeCategoryName" id="priceTypeCategoryName" aria-describedby="PriceTypeCategory Name" placeholder="PriceTypeCategory Name" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["Back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/General/PriceTypeCategory/PriceTypeCategory_CRUD.js" asp-append-version="true"></script>

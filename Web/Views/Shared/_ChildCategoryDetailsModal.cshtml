@@ -1,0 +1,56 @@
+﻿<div class="modal fade" id="childCategoryDetailsModal" tabindex="-1" aria-labelledby="childCategoryDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content custom-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="childCategoryDetailsModalLabel">Child Category Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeChildCategoryModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img id="childCategoryImage" src="" alt="Child Category Image" class="img-fluid rounded shadow-lg">
+                    </div>
+                    <div class="col-md-8">
+                        <h3 id="childCategoryName" class="category-name">Category Name</h3>
+                        <div id="priceTypeCategoriesContainer">
+                            <!-- Dynamically inserted price type categories and product prices -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-accent" onclick="addToCart()">
+                    <i class="fa fa-cart-plus"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Cart Menu -->
+<!-- Cart Menu -->
+<div id="cartMenu" class="cart-menu">
+    <div class="cart-header">
+        <h4>Cart</h4>
+        <button id="closeCartButton" class="close">&times;</button>
+    </div>
+    <div id="cartItemsContainer" class="cart-items-container">
+        <!-- Cart items will be dynamically inserted here -->
+    </div>
+    <div class="cart-footer">
+        <a onclick="checkout()" class="btn fw-bold btn-checkout">@SharedHtmlLocalizer["Check Out"]</a>
+    </div>
+</div>
+
+
+
+<script>
+    function closeChildCategoryModal() {
+        $('#childCategoryDetailsModal').modal('hide');
+    }
+</script>
+

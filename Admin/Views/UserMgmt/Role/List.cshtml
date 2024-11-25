@@ -1,0 +1,69 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["roles"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/UserMgmt/Role/AddEdit";
+
+}
+@await Html.PartialAsync("_PageHeaderPartial", title)
+
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+    <div class="card-body ">
+        <table class="table  align-middle mobile-optimised datatable-default-" id="datatable-default-">
+            <thead>
+                <tr>
+
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["s_no"]</th>
+                  @*  <th data-priority="1" class="text-left">@SharedHtmlLocalizer["s_no"]</th>*@
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["status"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["role"]</th>  
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["created_by"]</th>
+                    <th data-priority="6" class="text-left">@SharedHtmlLocalizer["last_modified_on"]</th>
+                    <th data-priority="2" class="">@SharedHtmlLocalizer["actions"]</th> 
+                </tr>
+            </thead>
+            <tbody class="">
+            </tbody>
+        </table>
+    </div>
+</section>
+<div class="modal fade" id="edit_permissions" tabindex="-1" role="dialog" aria-labelledby="edit_permissionsTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@SharedHtmlLocalizer["role_permissions"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               @* <br />
+                <ul class="permissions-list" style="padding: 0;">
+                </ul>
+                <br />*@
+                <table class="table align-middle mobile-optimised datatable-permission-list" id="datatable-permission-list">
+                    <thead class="position-sticky top-0 bg-light" style="z-index:99;">
+                        <tr>
+                            <th>Title</th>
+                            <th>Allowed</th>
+                            <th>List</th>
+                            <th>Order</th>
+                            <th>Status</th>
+                            <th>Add</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody class=""> 
+                    </tbody> 
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+                <button type="button" class="btn btn-primary" onclick="saveRolePermission()">@SharedHtmlLocalizer["save"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/developer/js/UserMgmt/Role/Role_Datatable.js" asp-append-version="true"></script>

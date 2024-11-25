@@ -1,0 +1,57 @@
+﻿@model Admin.Models.DataTableModel
+
+<header class="page-header">
+    <h2>@Model.Title</h2>
+    <div class="right-wrapper text-end me-3">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="/">
+                    <i class='bx bx-grid-alt'></i>
+                </a>
+            </li>
+        </ol>
+    </div>
+</header>
+<section class="card mb-3 ">
+    <header class="card-header d-flex justify-content-between align-items-center p-3">
+        <script>
+            // const allowReOrder = @Model.Permission.AllowDisplayOrder.ToString().ToLower();
+            allowReOrder = @Model.Permission.AllowDisplayOrder.ToString().ToLower();
+            const allowActive = @Model.Permission.AllowActive.ToString().ToLower();
+            const allowEdit = @Model.Permission.AllowEdit.ToString().ToLower();
+            const allowDelete = @Model.Permission.AllowDelete.ToString().ToLower();
+        </script>
+        <h2 class="card-title ">@Model.Title</h2>
+        <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+            <input type="hidden" id="allowDisplayOrder" value="@Model.Permission.GetAllowDisplayOrder()" />
+            <input type="hidden" id="allowActive" value="@Model.Permission.GetAllowActive()" />
+            <input type="hidden" id="allowEdit" value="@Model.Permission.GetAllowEdit()" />
+            <input type="hidden" id="allowDelete" value="@Model.Permission.GetAllowDelete()" />
+            @if (Model.Permission.AllowAdd && Model.NavigationPath != null)
+            {
+                <button class="btn btn-primary btn-sm " onclick="window.location = '@Model.NavigationPath';">
+                    <i class="fas fa-plus me-1"></i> @SharedHtmlLocalizer["add"]
+                </button>
+            }
+        </div>
+    </header>
+
+    <div class="card-body ">
+        <div class="row">
+            <div class="col-12">
+                <table class="table align-middle mobile-optimised datatable-default-" id="datatable-default-">
+                    <thead>
+                        <tr>
+                            @foreach (var item in Model.Headers)
+                            {
+                                <th data-priority="@item.Priority" class="text-start">@item.Title</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,19 @@
+﻿<div class="modal fade" id="confirmDeleteModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="confirm-deleteLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-bg-danger">
+                <h5 class="modal-title m-0">@SharedHtmlLocalizer["delete_confirmation"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@SharedHtmlLocalizer["close"]"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center mb-0">@SharedHtmlLocalizer["are_you_sure_you_want_to_delete"]</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">@SharedHtmlLocalizer["cancel"]</button>
+                <button type="button" class="btn btn-danger" onclick="deleteEntity()">@SharedHtmlLocalizer["delete"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/developer/js/App/delete-entity.js" asp-append-version="true"></script>

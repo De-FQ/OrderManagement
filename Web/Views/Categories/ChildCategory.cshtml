@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Ice Berg";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/sidenav.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+
+    </style>
+</head>
+<body>
+
+    @await Html.PartialAsync("_Backhead")
+
+    <!-- Hamburger Toggle Button for Small Screens -->
+    <button id="hamburgerBtn" class="btn btn-primary d-md-none" onclick="toggleMenu()">☰</button>
+
+    <div class="search-bar-container">
+        <input type="text" id="categorySearch" class="search-bar" placeholder="Search Category or Subcategory" onkeyup="filterCategories()">
+        <button type="button" class="search-button" onclick="filterCategories()">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div id="categoryMenu" class="category-menu">
+                    <div id="categoryContainer"></div>
+                </div>
+            </div>
+            <div class="col-md-10">
+
+                <div id="childcategoryContainer">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_ChildCategoryDetailsModal")
+    @await Html.PartialAsync("_Checkout")
+
+    <script>
+        function toggleMenu() {
+            var categoryMenu = document.getElementById('categoryMenu');
+            if (categoryMenu.style.display === "block") {
+                categoryMenu.style.display = "none";
+            } else {
+                categoryMenu.style.display = "block";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.innerWidth <= 800) {
+                document.getElementById('categoryMenu').style.display = 'none';
+            }
+        });
+    </script>
+
+    <script src="~/js/childcategories.js"></script>
+    <script src="~/js/categories.js"></script>
+    <script src="~/js/confirmOrder.js"></script>
+    <script src="~/js/cart.js"></script>
+</body>
+</html>

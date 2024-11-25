@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml";
+    ViewData["Title"] = "Session Expired";
+}
+<title>Session Expired</title>
+<section class="body-sign" style="max-width: 500px;">
+    <div class="center-sign">
+        <a href="javascript:void(0)" class="logo float-start">
+            <img src="/assets/img/logo.png" height="70" alt="Brand Logo" />
+        </a>
+
+        <div class="panel card-sign">
+            <div class="card-title-sign mt-3 text-end">
+                <h2 class="title text-uppercase font-weight-bold m-0"><i class="bx bx-user-circle me-1 text-6 position-relative top-5"></i>Session Expired</h2>
+            </div>
+            <div class="card-body text-center p-4">
+                <h1 class="text-primary text-center mt-0 mb-2">
+                    <i class="fa-solid fa-ban"></i>
+                </h1>
+                <h3 class="text-primary text-center">Your session is expired</h3>
+                <p class="text-start mt-3 mb-0 fw-bold"></p>
+                <a href="/Account/SignOut" class="btn btn-lg btn-primary text-center mt-3">Login</a>
+                </div>
+        </div>
+    </div>
+</section> 
+<script type="text/javascript" asp-append-version="true">
+    window.addEventListener('DOMContentLoaded', function (event) {
+        autoLogin(); 
+    });
+    window.addEventListener('unload', function (event) {
+         hideLoader();
+    });
+
+    autoLogin = () => {
+        showLoader();
+         $.get("AutoLogin", function (result) {
+            if (result != "") { 
+                setTimeout(autoRedirect(result.url), 10000); 
+            };
+        });
+    }
+
+    autoRedirect=(url)=>{
+        window.location.href = url;
+    }
+</script>

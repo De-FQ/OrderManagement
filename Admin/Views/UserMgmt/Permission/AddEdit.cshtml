@@ -1,0 +1,119 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["edit_permission"].Value : @SharedHtmlLocalizer["add_permission"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+
+<div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <h2 class="card-title">@headerTitle</h2>
+            </header>
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row mb-3">
+                        <!-- Title -->
+                        <div class="mb-3 col-md-4">
+                            <label for="title">@SharedHtmlLocalizer["permission_name_en"]<span class=" text-danger">*</span></label>
+                            <input type="text" class="form-control" name="title" id="title" aria-describedby="@SharedHtmlLocalizer["permission_name_en"]" maxlength="50">
+                            <span class="characters-used"></span>
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["please_enter_permission_name"]
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="title">@SharedHtmlLocalizer["permission_name_ar"]<span class=" text-danger">*</span></label>
+                            <input type="text" class="form-control" name="titleAr" id="titleAr" aria-describedby="@SharedHtmlLocalizer["permission_name_ar"]"
+                                   oninput="maxlength(event);" maxlength="50">
+                            <span class="characters-used"></span>
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["please_enter_permission_name"]
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="navigationUrl">@SharedHtmlLocalizer["navigation_url"]<span class=" text-danger">*</span></label>
+                            <input type="text" class="form-control" name="navigationUrl" id="navigationUrl" aria-describedby="@SharedHtmlLocalizer["navigation_url"]">
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["please_enter_navigation_url"]
+                            </div>
+                        </div>
+
+                        @*  <div class="mb-3 col-md-4">
+                        <label for="icon">@SharedHtmlLocalizer["IconName"]<span class=" text-danger">*</span></label>
+                        <input type="text" class="form-control" name="icon" id="icon" aria-describedby="@SharedHtmlLocalizer["IconName"]">
+                        <div class="invalid-feedback">
+                        @SharedHtmlLocalizer["PleaseEnterAnIconName"]
+                        </div>
+                        </div>*@
+
+                        <div class="mb-3 col-md-4">
+                            <label for="icon">@SharedHtmlLocalizer["icon_name"]<span class=" text-danger">*</span></label>
+                            <select data-plugin-options='{ "placeholder": "" , "allowClear" : true}' style="width: 100%"
+                                    class="form-select form-control" name="iconsList" id="iconsList" aria-describedby="Icons List from Fontawesome 6">
+                            </select>
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["please_select_icon_name"]
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 col-md-4">
+                            <label for="permissionId">@SharedHtmlLocalizer["permission_id"]</label>
+                            <input type="number" class="form-control" name="permissionId" id="permissionId">
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["please_enter_permission_id"]
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="displayOrder">@SharedHtmlLocalizer["display_order"]</label>
+                            <input type="number" class="form-control" name="displayOrder" id="displayOrder" value="0">
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["please_enter_display_order"]
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="accessList">@SharedHtmlLocalizer["Permission"]</label>
+                            <select id="accessList" multiple="multiple">
+                                <option value="Allowed">Allowed</option>
+                                <option value="Active">Active</option>
+                                <option value="List">List</option>
+                                <option value="DisplayOrder">DisplayOrder</option>
+                                <option value="Add">Add</option>
+                                <option value="Edit">Edit</option>
+                                <option value="Delete">Delete</option>
+                                <option value="View">View</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["PleaseEnterPermission"]
+                            </div>
+                        </div>
+                        <div class="mb-3 col-6 col-md-4">
+                            <label for="active">@SharedHtmlLocalizer["show_in_menu"]</label>
+                            <div class="d-flex flex-column justify-content-start mt-2">
+                                <div class="switch switch-sm switch-primary">
+                                    <input type="checkbox" name="showInMenu" id="showInMenu" data-plugin-ios-switch>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/developer/js/UserMgmt/Permission/Permission_CRUD.js" asp-append-version="true"></script>
+

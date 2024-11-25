@@ -1,0 +1,46 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["Edit"].Value : @SharedHtmlLocalizer["Add"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                </div>
+            </header>
+            <div class="card-body ">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" action="/Supplier/AddEdit" autocomplete="off">
+                    <input type="hidden" id="guid" name="Guid" value="@Model.Guid" />
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="name" class="form-label">@SharedHtmlLocalizer["Supplier Name"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="name" id="name" value="@Model.Name" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="address" class="form-label">@SharedHtmlLocalizer["Supplier Address"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="address" id="address" value="@Model.Address" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="contact" class="form-label">@SharedHtmlLocalizer["Supplier Contact"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="contact" id="contact" value="@Model.Contact" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["Back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/developer/js/InventoryManagement/Supplier/Supplier_CRUD.js" asp-append-version="true"></script>

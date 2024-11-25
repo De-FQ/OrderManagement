@@ -1,0 +1,351 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+
+@{
+    var title = @SharedHtmlLocalizer["Sales Report"].Value;
+    Model.Title = title;
+    Model.AddEditPath = "/SalesReport/View";
+}
+
+@await Html.PartialAsync("_PageHeaderPartial", title)
+
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartialReport", Model)
+
+    <div class="card-body">
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs" id="summaryTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="revenue-tab" data-bs-toggle="tab" href="#revenue" role="tab" aria-controls="revenue" aria-selected="true">@SharedHtmlLocalizer["Revenue Summary"]</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="top-sold-items-tab" data-bs-toggle="tab" href="#top-sold-items" role="tab" aria-controls="top-sold-items" aria-selected="false">@SharedHtmlLocalizer["Top Sold Items Summary"]</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="sales-summary-tab" data-bs-toggle="tab" href="#sales-summary" role="tab" aria-controls="sales-summary" aria-selected="false">@SharedHtmlLocalizer["Top Sale Days Summary"]</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="peak-hour-tab" data-bs-toggle="tab" href="#peak-hour" role="tab" aria-controls="peak-hour" aria-selected="false">@SharedHtmlLocalizer["Peak Hour Summary"]</a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="summaryTabsContent">
+            <!-- Revenue Sections -->
+            <div class="tab-pane fade show active" id="revenue" role="tabpanel" aria-labelledby="revenue-tab">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Total Revenue For Day"]</h5>
+                                <ul id="totalRevenueDay" class="list-group">
+                                    <!-- Total revenue for the day will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Total Revenue For Week"]</h5>
+                                <small id="currentWeekRevenue" class="text-muted"></small>
+                                <ul id="totalRevenueWeek" class="list-group">
+                                    <!-- Total revenue for the week will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Total Revenue For Month"]</h5>
+                                <small id="currentMonthRevenue" class="text-muted"></small>
+                                <ul id="totalRevenueMonth" class="list-group">
+                                    <!-- Total revenue for the month will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Total Revenue For Year"]</h5>
+                                <small id="currentYearRevenue" class="text-muted"></small>
+                                <ul id="totalRevenueYear" class="list-group">
+                                    <!-- Total revenue for the year will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <!-- Day Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Day</h5>
+                                <input type="date" id="selectDay" class="form-control" onchange="fetchTotalRevenueForSpecificDay(this.value)" />
+                                <ul id="specificRevenueDayData" class="list-group mt-2">
+                                    <!-- Total revenue for the selected day will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Week Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Week</h5>
+                                <input type="number" id="selectYearForWeek" class="form-control mb-2" placeholder="Year" />
+                                <input type="number" id="selectWeek" class="form-control" placeholder="Week Number" onchange="fetchTotalRevenueForSpecificWeek($('#selectYearForWeek').val(), this.value)" />
+                                <ul id="specificRevenueWeekData" class="list-group mt-2">
+                                    <!-- Total revenue for the selected week will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Month Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Month</h5>
+                                <input type="number" id="selectYearForMonth" class="form-control mb-2" placeholder="Year" />
+                                <input type="number" id="selectMonth" class="form-control" placeholder="Month (1-12)" onchange="fetchTotalRevenueForSpecificMonth($('#selectYearForMonth').val(), this.value)" />
+                                <ul id="specificRevenueMonthData" class="list-group mt-2">
+                                    <!-- Total revenue for the selected month will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Year Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Year</h5>
+                                <input type="number" id="selectYear" class="form-control" placeholder="Year" onchange="fetchTotalRevenueForSpecificYear(this.value)" />
+                                <ul id="specificRevenueYearData" class="list-group mt-2">
+                                    <!-- Total revenue for the selected year will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Sold Items Sections -->
+            <div class="tab-pane fade" id="top-sold-items" role="tabpanel" aria-labelledby="top-sold-items-tab">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sold Items For Day"]</h5>
+                                <ul id="topSoldItemsDay" class="list-group">
+                                    <!-- Top sold items for the day will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sold Items For Week"]</h5>
+                                <small id="currentWeekTopItems" class="text-muted"></small>
+                                <ul id="topSoldItemsWeek" class="list-group">
+                                    <!-- Top sold items for the week will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sold Items For Month"]</h5>
+                                <small id="currentMonthTopItems" class="text-muted"></small>
+                                <ul id="topSoldItemsMonth" class="list-group">
+                                    <!-- Top sold items for the month will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sold Items For Year"]</h5>
+                                <small id="currentYearTopItems" class="text-muted"></small>
+                                <ul id="topSoldItemsYear" class="list-group">
+                                    <!-- Top sold items for the year will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <!-- Day Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Day</h5>
+                                <input type="date" id="selectDayTopItems" class="form-control" onchange="fetchSalesDataForSpecificDay(this.value)" />
+                                <ul id="specificDaySalesData" class="list-group mt-2">
+                                    <!-- Top sold items for the selected day will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Week Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Week</h5>
+                                <input type="number" id="selectYearForWeekTopItems" class="form-control mb-2" placeholder="Year" />
+                                <input type="number" id="selectWeekTopItems" class="form-control" placeholder="Week Number" onchange="fetchSalesDataForSpecificWeek($('#selectYearForWeekTopItems').val(), this.value)" />
+                                <ul id="specificWeekSalesData" class="list-group mt-2">
+                                    <!-- Top sold items for the selected week will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Month Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Month</h5>
+                                <input type="number" id="selectYearForMonthTopItems" class="form-control mb-2" placeholder="Year" />
+                                <input type="number" id="selectMonthTopItems" class="form-control" placeholder="Month (1-12)" onchange="fetchSalesDataForSpecificMonth($('#selectYearForMonthTopItems').val(), this.value)" />
+                                <ul id="specificMonthSalesData" class="list-group mt-2">
+                                    <!-- Top sold items for the selected month will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Year Selection -->
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">Select Year</h5>
+                                <input type="number" id="selectYearTopItems" class="form-control" placeholder="Year" onchange="fetchSalesDataForSpecificYear(this.value)" />
+                                <ul id="specificYearSalesData" class="list-group mt-2">
+                                    <!-- Top sold items for the selected year will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Summary Sections -->
+            <div class="tab-pane fade" id="sales-summary" role="tabpanel" aria-labelledby="sales-summary-tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sale Days For Week"]</h5>
+                                <small id="currentWeekRevenue" class="text-muted"></small>
+                                <ul id="saleDaysForWeek" class="list-group">
+                                    <!-- Total sales for the week will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sale Days For Month"]</h5>
+                                <small id="currentMonthRevenue" class="text-muted"></small>
+                                <ul id="saleDaysForMonth" class="list-group">
+                                    <!-- Total sales for the month will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Top Sale Days For Year"]</h5>
+                                <small id="currentYearRevenue" class="text-muted"></small>
+                                <ul id="saleDaysForYear" class="list-group">
+                                    <!-- Total sales for the year will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Peak Hour Sections -->
+            <div class="tab-pane fade" id="peak-hour" role="tabpanel" aria-labelledby="peak-hour-tab">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Peak Hour For Today"]</h5>
+                                <small id="peakHourForDay" class="text-muted"></small>
+                                <ul id="peakHourForDayList" class="list-group">
+                                    <!-- Peak hour data for today will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Peak Hour For This Week"]</h5>
+                                <small id="peakHourForWeek" class="text-muted"></small>
+                                <ul id="peakHourForWeekList" class="list-group">
+                                    <!-- Peak hour data for this week will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Peak Hour For This Month"]</h5>
+                                <small id="peakHourForMonth" class="text-muted"></small>
+                                <ul id="peakHourForMonthList" class="list-group">
+                                    <!-- Peak hour data for this month will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">@SharedHtmlLocalizer["Peak Hour For This Year"]</h5>
+                                <small id="peakHourForYear" class="text-muted"></small>
+                                <ul id="peakHourForYearList" class="list-group">
+                                    <!-- Peak hour data for this year will be dynamically populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Range Picker and Sales Table -->
+        <div class="form-group row">
+            <input type="text" id="daterange" class="form-control col-sm-4" placeholder="@SharedHtmlLocalizer["selectDateRange"]" />
+            <div class="col-sm-4"></div>
+            <table class="table align-middle mobile-optimised datatable-default-" id="datatable-sales-report">
+                <thead>
+                    <tr>
+                        <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo."]</th>
+                        <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Date"]</th>
+                        <th data-priority="3" class="text-left">@SharedHtmlLocalizer["Day"]</th>
+                        <th data-priority="4" class="text-left">@SharedHtmlLocalizer["Article Name"]</th>
+                        <th data-priority="5" class="text-left">@SharedHtmlLocalizer["Quantity"]</th>
+                        <th data-priority="6" class="text-left">@SharedHtmlLocalizer["Total Amount"]</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/developer/js/General/SalesReport/SalesReport_Datatable.js" asp-append-version="true"></script>

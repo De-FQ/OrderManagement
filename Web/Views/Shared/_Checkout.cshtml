@@ -1,0 +1,151 @@
+﻿@model Utility.Models.Frontend.GeneralDto.OrderDto
+
+<!-- Checkout Modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-5">
+                <form id="checkoutForm">
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <label for="customerName" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Enter customer name" value="New Customer" required>
+                            <div id="customerNameError" class="invalid-feedback">Customer Name Required</div>
+                        </div>
+                        <div class="col-6">
+                            <label for="customerContact" class="form-label">Customer Contact</label>
+                            <input type="number" class="form-control" id="customerContact" name="customerContact" placeholder="Enter customer contact number" required value="03001234567">
+                            <div id="contactError" class="invalid-feedback">Customer Contact Required</div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <label for="paymentMethod" class="form-label">Payment Method</label>
+                            <select class="form-control" id="paymentMethod" name="paymentMethod" onchange="togglePaymentFields()">
+                                <option value="cash">Cash</option>
+                                <option value="card">Card</option>
+                                <option value="online">Online Payment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="paymentFields" class="mb-4"></div>
+                    <div id="checkoutItemsContainer" class="mb-4"></div>
+
+                    <!-- Add Discount Input -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="discountAmount" class="form-label">Discount Amount</label>
+                            <input type="number" class="form-control" id="discountAmount" name="discountAmount" placeholder="Enter discount amount" value="0" oninput="calculateChange()">
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="amountReceived" class="form-label">Amount Received</label>
+                            <input type="number" class="form-control" id="amountReceived" name="amountReceived" placeholder="Enter amount received from customer" oninput="calculateChange()">
+                            <div id="amountReceivedError" class="invalid-feedback">Received Amount Required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="changeToReturn" class="form-label">Change to Return</label>
+                            <input type="text" class="form-control" id="changeToReturn" name="changeToReturn" readonly>
+                        </div>
+                    </div>
+                    <input type="hidden" id="requiredAmount" value="1000"> <!-- Set the required amount dynamically as needed -->
+                    <div class="row mb-3">
+                        <div class="col-12 d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger solid-button" onclick="confirmCancelOrder()">Cancel Order</button>
+                            <button type="button" class="btn btn-warning solid-button text-white" onclick="holdOrder()">Hold Order</button>
+                            <button type="button" class="btn btn-success solid-button" id="confirmOrderButton" onclick="confirmOrder()" disabled>Confirm Order</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Modal animations */
+    .modal.fade .modal-dialog {
+        transform: translate(0, -50px);
+        transition: transform 0.3s ease-out;
+    }
+
+    .modal.fade.show .modal-dialog {
+        transform: translate(0, 0);
+    }
+
+    /* Stylish Form Elements */
+    .form-label {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 0.2rem;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        }
+
+    /* Solid Button Styles */
+    .solid-button {
+        transition: transform 0.2s, box-shadow 0.2s;
+        border-radius: 0.2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 0.2rem 1rem;
+        font-weight: bold;
+        font-size: 1rem;
+        color: white;
+        background-color: #f2f2f2; /* Background for default */
+    }
+
+        .solid-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+    /* Custom Modal Styling */
+    .modal-content {
+        background: linear-gradient(145deg, #ffffff, #f2f2f2);
+        border-radius: 1rem;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-body {
+        padding: 2.5rem;
+    }
+
+    /* Button Styling */
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+    .btn-warning {
+        background-color: #ffc107;
+        border: none;
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+</style>

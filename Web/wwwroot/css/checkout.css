@@ -1,0 +1,309 @@
+﻿body {
+    font-family: Arial, sans-serif;
+   
+}
+
+
+.custom-modal-contents {
+    background-color: rgba(61, 61, 61, 0.6);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    margin-left: 0px;
+    margin-top: 70px;
+    height: 878px;
+    width: 800px;
+}
+
+.modal-header {
+    border-bottom: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+    .modal-header .close {
+        margin-top: -22px;
+        color: #ffffff;
+        font-size: 45px;
+        opacity: 1;
+        padding: 0rem .10rem;
+    }
+
+.modal-title {
+    display: none;
+}
+
+
+
+    .modal-body p {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+.form-group label {
+    color: #ff69b4; /* Light pink color */
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ff69b4; /* Light pink border */
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+#totalPrice {
+    color: #ff69b4; /* Light pink color */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-footer {
+    border-top: none;
+    justify-content: center;
+}
+
+.btn-primary1 {
+    background-color: #124049;
+    /*border-color: #ff69b4;*/
+    color: wheat;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 46px;
+    border-style: solid;
+    border-width: 4px;
+}
+    .btn-primary1:hover {
+        color: wheat;
+        background-color: #0a0a0ae3;
+        /*border-color: #ff69b4;*/
+    }
+
+.btn-primary2 {
+    /*background-color: #2c2c2c;*/
+    /*border-color: #ff69b4;*/
+    margin-top:100px;
+    color: wheat;
+    font-size: 1.1rem;
+    padding: 0px 0px;
+    border-radius: 46px;
+    border-style: solid;
+    border-width: 4px;
+}
+
+    /*.btn-primary2:hover {
+        color: wheat;
+        background-color: #0a0a0ae3;*/
+        /*border-color: #ff69b4;*/
+    /*}*/
+
+.ice-cream-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .ice-cream-section h3 {
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+
+.ice-cream-image {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.ice-cream-flavor {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.chkbtn {
+    margin-top: 6px;
+    margin-left: 1520px;
+}
+
+.chkbtns {
+    color: wheat;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+    .chkbtns a {
+        color: wheat;
+    }
+.chkbtn.btn.btn-primary {
+    /* Existing styles */
+    padding: 10px 20px; /* Adjust padding if needed */
+    display: flex; /* Enable flexbox for alignment */
+    align-items: center; /* Vertically center content */
+}
+
+    .chkbtn.btn.btn-primary img {
+        margin-right: 10px; /* Spacing between image and text */
+        width: 110px; /* Set image width */
+        height: 100px; /* Set image height */
+    }
+.chkbtns.btn.btn-primary {
+    /* Existing styles */
+    padding: 10px 20px; /* Adjust padding if needed */
+    display: flex; /* Enable flexbox for alignment */
+    align-items: center; /* Vertically center content */
+}
+
+    .chkbtns.btn.btn-primary img {
+        margin-right: 10px; /* Spacing between image and text */
+        width: 110px; /* Set image width */
+        height: 100px; /* Set image height */
+    }
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+/*.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+    .header .chkbtn,
+    .header .chkbtns {
+        margin: 0 10px;
+    }*/
+
+/* Style the table */
+.ice-cream-flavorss .flavor {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    background-color: #f9f9f9;
+}
+
+    .ice-cream-flavorss .flavor:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .ice-cream-flavorss .flavor img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .ice-cream-flavorss .flavor p {
+        margin: 0;
+        font-size: 1.1em;
+    }
+
+    .ice-cream-flavorss .flavor .rate {
+        font-size: 0.9em;
+        color: #777;
+    }
+
+/* Ensure proper spacing within the main content */
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+    .quantity .minus,
+    .quantity .plus {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .quantity .input-text.qty.text {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #ddd;
+        margin: 0 5px;
+    }
+
+.cart-container {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cart-header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .cart-header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .cart-header .total-items {
+        font-size: 18px;
+    }
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .cart-table th, .cart-table td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .cart-table th {
+        background-color: #000000;
+    }
+
+    .cart-table img {
+        width: 50px;
+        height: auto;
+    }
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .quantity-control button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .quantity-control input {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ddd;
+        margin: 0 5px;
+    }
+
+.cart-header img {
+    margin-right: 10px;
+    width: 70px; /* Adjust the width as needed */
+    height: auto;
+}
+

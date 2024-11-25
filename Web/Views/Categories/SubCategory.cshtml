@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "SubCategory";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/sidenav.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+    @await Html.PartialAsync("_Backhead")
+    <!-- Side Navbar Partial--> @await Html.PartialAsync("_SideNav")
+    <!-- Side Navbar Partial Ends-->
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row" id="subcategoryContainer">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+    <script src="~/js/subcategories.js"></script>
+</body>
+</html>

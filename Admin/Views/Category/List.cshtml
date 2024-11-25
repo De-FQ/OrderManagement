@@ -1,0 +1,126 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["Category"].Value;
+    Model.Title = title;
+    Model.AddEditPath = "/Category/AddEdit";
+}
+
+@await Html.PartialAsync("_PageHeaderPartial", title)
+
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", Model)
+
+    <div class="card-body">
+        <table class="table align-middle mobile-optimised" id="datatable-default-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo."]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Active"]</th>
+                    <th data-priority="3" class="text-start">@SharedHtmlLocalizer["Image"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["Name"]</th>
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["Description"]</th>
+                    <th data-priority="6" class="">@SharedHtmlLocalizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="modal fade" id="update_categoryModal" tabindex="-1" aria-labelledby="update_categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_categoryModalLabel">@SharedHtmlLocalizer["Edit Category"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" name="Guid" value="" />
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="categoryName" class="col-form-label">@SharedHtmlLocalizer["Name"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="categoryName" id="categoryName" aria-describedby="Category Name" placeholder="Category Name" required>
+                            <div class="invalid-feedback">Please enter category name</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">@SharedHtmlLocalizer["Description"]:</label>
+                            <textarea dir="ltr" class="form-control" name="description" id="description" aria-describedby="Description" placeholder="Description" required></textarea>
+                            <div class="invalid-feedback">Please enter description</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imageFile" class="form-label">@SharedHtmlLocalizer["Upload Image"]:</label>
+                            <input class="form-control enable-compression" type="file" name="imageFile" id="imageFile">
+                            <small class="form-text text-muted">@SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_100x100_px_in_jpg_or_png_format"]</small>
+                            <div class="invalid-feedback">@SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_100x100_px_in_jpg_or_png_format"]</div>
+                        </div>
+                        <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                            <img src="/assets/img/default.png" class="img-fluid preview-image" name="imagePreview" id="imagePreview">
+                            <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["Preview"]</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">@SharedHtmlLocalizer["Discount"]:</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="discountToggle" name="discountToggle">
+                                <label class="form-check-label" for="discountToggle">@SharedHtmlLocalizer["Apply Discount"]</label>
+                            </div>
+                        </div>
+                        <div class="mb-3" id="discountPercentageContainer" style="display: none;">
+                            <label for="discountPercentage" class="col-form-label">@SharedHtmlLocalizer["Discount Percentage"]:</label>
+                            <input type="number" dir="ltr" class="form-control" name="discountPercentage" id="discountPercentage" placeholder="0" min="0" max="100">
+                            <div class="invalid-feedback">Please enter a valid discount percentage (0-100).</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["Close"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const discountToggle = document.getElementById('discountToggle');
+        const discountPercentageContainer = document.getElementById('discountPercentageContainer');
+
+        discountToggle.addEventListener('change', function () {
+            if (this.checked) {
+                discountPercentageContainer.style.display = 'block';
+            } else {
+                discountPercentageContainer.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+
+
+</style>
+
+<script src="~/developer/js/Categories/Category/Category_Datatable.js" asp-append-version="true"></script>

@@ -1,0 +1,6 @@
+﻿@model BaseModel
+<input id="Guid" type="hidden" value="@(Model.Guid == null || Model.Guid.Value == Guid.Empty ? "" : Model.Guid.Value)" />
+<input id="createdBy" type="hidden" />
+<input id="createdOn" value='@DateTime.Now.ToString("yyyy/MM/dd")' type="hidden" />
+<input id="modifiedBy" type="hidden" />
+<input id="modifiedOn" type="hidden" /> 

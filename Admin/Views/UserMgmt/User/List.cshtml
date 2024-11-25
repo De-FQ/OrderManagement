@@ -1,0 +1,111 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["users"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/UserMgmt/User/AddEdit";
+}
+@await Html.PartialAsync("_PageHeaderPartial", title )
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+   
+    <div class="card-body ">
+        <table class="table  align-middle mobile-optimised datatable-default-" id="datatable-default-">
+            <thead>
+                <tr>
+            @*             @await Html.PartialAsync("_CommonTableColumnsPartial")  *@
+
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["s_no"]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["status"]</th>
+                    <th data-priority="3" class="text-start">@SharedHtmlLocalizer["profile_picture"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["full_name"]</th>
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["email"]</th>
+                    <th data-priority="8" class="text-left">@SharedHtmlLocalizer["role"]</th>
+                    <th data-priority="7" class="text-left">@SharedHtmlLocalizer["registered_by"]</th>
+                    <th data-priority="9" class="text-left">@SharedHtmlLocalizer["last_login"]</th>
+                    <th data-priority="2" class="">@SharedHtmlLocalizer["actions"]</th>
+                </tr>
+            </thead>
+            <tbody class="">
+            </tbody>
+        </table>
+    </div>
+</section>
+<div class="modal fade" id="update_passwordModal" tabindex="-1" aria-labelledby="update_passwordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_passwordModalLabel">Change Password</h5> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" value="" />
+                    <div class="row">
+                        @*   <div class="mb-3">
+                        <label for="password" class="col-form-label">New Password:</label>
+                        <input type="text" dir="ltr" class="form-control" name="password" id="password" aria-describedby="New Password" placeholder="New Password" value="" required>
+                        <div class="invalid-feedback">Please enter password </div>
+                        <div class="valid-feedback"></div>
+                    </div>*@
+
+                    <div class="mb-3">
+                        <label for="pwd" class="col-form-label">New Password:</label>
+                        <input type="password" dir="ltr" class="form-control" id="pwd" name="pwd" maxlength="12" placeholder="Password" autocomplete="off"
+                               onkeyup="javascript:newPasswordOnKeyUp(this)" onblur="javascript:newPasswordOnBlur()" onfocus="javascript:newPasswordOnFocus()"
+                               title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required>
+                        <div class="invalid-feedback">Please enter password</div>
+                        <div class="col-12" id="message" style="display:none">
+                            <h5 class="color:black">@SharedHtmlLocalizer["Password must contain the following"]</h5>
+                            <p id="letter" class="form-label invalid">A <b>lowercase</b> letter</p>
+                            <p id="capital" class="form-label invalid">A <b>capital (uppercase)</b> letter</p>
+                            <p id="number" class="form-label invalid">A <b>number</b></p>
+                            <p id="minlength" class="form-label invalid">Minimum <b>5 characters</b></p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cpwd" class="col-form-label">Confirm Password:</label>
+                        <input type="text" dir="ltr" class="form-control" name="cpwd" id="cpwd" aria-describedby="Confirm Password" placeholder="Confirm Password" value="" required>
+                        <div class="invalid-feedback">Please enter confirm password</div>
+                        <div class="valid-feedback"></div>
+                    </div>
+                     
+                </div>
+          
+            <div class="modal-footer">
+
+                <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["save"]</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+            </div>
+                </form>
+            </div>
+        
+    </div>
+</div>
+</div>
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+<script src="~/developer/js/UserMgmt/User/User_Datatable.js" asp-append-version="true"></script>

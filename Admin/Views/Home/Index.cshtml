@@ -1,0 +1,21 @@
+﻿@model BaseModel
+@{
+    var headerTitle = @SharedHtmlLocalizer["dashboard"].Value;
+}
+
+<video class="video-background" autoplay muted loop>
+    <source src="~/assets/img/dashome6.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+<div class="container h-100 my-auto" style="position: relative; z-index: 999;">
+        <div class="row flex-column align-items-center justify-content-center h-100">
+            <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center h-100 text-center">
+                @* <img src="~/assets/img/Global.png" class="img-fluid" height="350" alt=""> *@
+                @* <h3 class="text-uppercase">@SharedHtmlLocalizer["admin_dashboard"]</h3> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" style="z-index:1000; position: absolute;"></div>

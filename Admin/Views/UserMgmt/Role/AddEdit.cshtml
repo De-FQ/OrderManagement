@@ -1,0 +1,47 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["edit_role"].Value : @SharedHtmlLocalizer["add_role"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+ 
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                </div>
+            </header>
+            <div class="card-body ">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" asp-antiforgery="false">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row">
+                        <div class="col-12 col-lg-6 mb-3">
+                            <label for="Follow-upDesciption" class="form-label ">@SharedHtmlLocalizer["name"]<span class=" text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control border-secondary1 " name="name" id="name" aria-describedby="Name" placeholder="Name" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-6 mb-3">
+                            <label for="" class="form-label">@SharedHtmlLocalizer["type"]<span class=" text-danger">*</span></label>
+                            <select class="form-select" name="roleTypeList" id="roleTypeList" dir="ltr" aria-describedby="Type">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="~/developer/js/UserMgmt/Role/Role_CRUD.js" asp-append-version="true"></script>
+
+
+
+
+

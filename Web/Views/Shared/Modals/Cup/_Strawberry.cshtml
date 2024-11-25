@@ -1,0 +1,44 @@
+﻿<!-- Strawberry Ice Cream Modal -->
+<div class="modal fade" id="strawberryModal" tabindex="-1" aria-labelledby="strawberryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 900px;">
+        <div class="modal-content custom-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="strawberryModalLabel">Strawberry Ice Cream</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="big-tub-container" style="position: relative;">
+                    <img src="~/assets/img/cup/large/strawberry.png" alt="Strawberry Ice Cream" class="img-fluid big-tub" />
+                    <div class="flavour-label modalheadingstyle">
+                        Strawberry <br> Ice Cream
+                    </div>
+                </div>
+                <div class="small-tub-container">
+                    <img src="~/assets/img/cup/strawberry.png" alt="Strawberry Ice Cream" class="img-fluid small-tub" />
+                    <img src="~/assets/img/cup/double/strawberry.png" alt="Strawberry Ice Cream" class="img-fluid small-tubs" />
+                </div>
+                <div class="scoop-section">
+                    <div class="scoop-item">
+                        <p>Single Scoop</p>
+                        <input type="number" id="singleStrawberryScoop" class="form-control small-input" value="0" min="0" oninput="calculateStrawberryPrice()" />
+                        <p>Single Scoop Price: <br><span id="singleStrawberryScoopPrice">00</span> Rs.</p>
+                    </div>
+                    <div class="scoop-items">
+                        <p>Double Scoop</p>
+                        <input type="number" id="doubleStrawberryScoop" class="form-control small-input" value="0" min="0" oninput="calculateStrawberryPrice()" />
+                        <p>Double Scoop Price: <br><span id="doubleStrawberryScoopPrice">00</span> Rs.</p>
+                    </div>
+                </div>
+                <div class="price-section">
+                    <h2>Total Price: <span id="totalStrawberryPrice">00</span> Rs.</h2>
+                    <h2>Total Quantity: <span id="totalStrawberryQuantity">00</span></h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="addToStrawberryOrder()">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

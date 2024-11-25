@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "1/2 Litre Pack";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/litre.css">
+    <link rel="stylesheet" href="~/css/sidenav.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+</head>
+<body>
+    <img class="icy" src="~/assets/img/icyice.png" />
+    <div class="header">
+        <span class="toggle-btn" id="toggle-btn">&#9776;</span>
+        <a href="@Url.Action("CheckoutData", "Checkout" )">
+            <button id="checkout-btn" class="chkbtn btn btn-primary">
+                <img src="~/assets/img/icecream/iceice.png" alt="Checkout Icon" />
+            </button>
+        </a>
+        <a href="@Url.Action("Index", "Home" )">
+            <button class="chkbtns btn btn-primary">
+                <img src="~/assets/img/icecream/home.png" alt="Home" />
+            </button>
+        </a>
+    </div>
+    <!-- Side Navbar Partial--> @await Html.PartialAsync("_SideNav")
+    <!-- Side Navbar Partial Ends-->
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4">1/2 Litre Pack</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="ice-cream-flavors">
+                    <!-- First row of flavors (6 flavors) -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/chocolatecoco.png" alt="Chocolate Coco">
+                                <p>Chocolate Coco</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/strawberry.png" alt="Strawberry">
+                                <p>Strawberry</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/mango.png" alt="Mango">
+                                <p>Mango</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/kulfa.png" alt="Kulfa">
+                                <p>Kulfa</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/Pista.png" alt="Pistachio">
+                                <p>Pistachio</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/vanilla.png" alt="Vanilla">
+                                <p>Vanilla</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ice-cream-flavors">
+                    <!-- Second row of flavors (remaining 6 flavors) -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/coconut.png" alt="Coconut">
+                                <p>Coconut</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/dairymilk.png" alt="Dairy Milk">
+                                <p>Dairy Milk</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/oreo.png" alt="Oreo">
+                                <p>Oreo</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/darkchoco.png" alt="Dark Choco">
+                                <p>Dark Choco</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/mughlia.png" alt="Mughia">
+                                <p>Mughia</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/blueberry.png" alt="Blue Berry">
+                                <p>Blue Berry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/sidenav.js"></script>
+    <script src="~/js/checkout.js"></script>
+</body>
+</html>

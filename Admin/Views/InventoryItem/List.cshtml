@@ -1,0 +1,141 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["Inventory Item"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/InventoryItem/AddEdit";
+}
+@await Html.PartialAsync("_PageHeaderPartial", title)
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+    <div class="card-body">
+        <div class="row">
+            <!-- Supplier Filter -->
+            <div class="col-12 col-lg-3 mb-3">
+                <label for="supplierFilter" class="form-label">@SharedHtmlLocalizer["Supplier"]<span class="text-danger">*</span></label>
+                <select class="form-select" name="supplierFilter" id="supplierFilter" dir="ltr" aria-describedby="Supplier">
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+            <!-- Date Filter -->
+            <div class="col-12 col-lg-3 mb-3">
+                <label for="dateFilter" class="form-label">Date Filter:</label>
+                <input type="date" class="form-control" id="dateFilter" name="dateFilter" />
+            </div>
+            <!-- Payable Amount -->
+            <div class="col-12 col-lg-3 mb-3">
+                <label for="totalCostPriceInput" class="form-label">Payable Amount:</label>
+                <input type="text" class="form-control fw-bold" id="totalCostPriceInput" readonly value="0.00" />
+            </div>
+            <!-- Paid Amount -->
+            <div class="col-12 col-lg-3 mb-3">
+                <label for="paidAmount" class="form-label">Paid Amount:</label>
+                <input type="text" class="form-control" id="paidAmount" placeholder="Enter Paid Amount" />
+            </div>
+            <!-- Balance -->
+            <div class="col-12 col-lg-3 mb-3">
+                <label for="balanceAmountInput" class="form-label">Balance:</label>
+                <input type="text" class="form-control fw-bold" id="balanceAmountInput" readonly value="0.00" />
+            </div>
+        </div>
+
+
+        <table class="table align-middle mobile-optimised" id="datatable-default-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo"]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Active"]</th>
+                    <th data-priority="3" class="text-left">@SharedHtmlLocalizer["Name"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["Description"]</th>
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["Unit"]</th>
+                    <th data-priority="6" class="text-left">@SharedHtmlLocalizer["Net Cost"]</th>
+                    <th data-priority="7" class="text-left">@SharedHtmlLocalizer["Quantity"]</th>
+                    <th data-priority="8" class="text-left">@SharedHtmlLocalizer["Total Cost"]</th>
+                    <th data-priority="9" class="text-start">@SharedHtmlLocalizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="modal fade" id="update_inventoryItemModal" tabindex="-1" aria-labelledby="update_inventoryItemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_inventoryItemModalLabel">@SharedHtmlLocalizer["edit_inventory_item"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" value="" />
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="inventoryItemName" class="col-form-label">@SharedHtmlLocalizer["inventory_item_name"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="inventoryItemName" id="inventoryItemName" aria-describedby="InventoryItem Name" placeholder="Inventory Item Name" value="" required>
+                            <div class="invalid-feedback">Please enter inventory item name</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="supplier" class="form-label">@SharedHtmlLocalizer["supplier"]:</label>
+                            <select class="form-select" name="supplier" id="supplier" dir="ltr" aria-describedby="Supplier">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="unit" class="form-label">@SharedHtmlLocalizer["unit"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="unit" id="unit" aria-describedby="Unit" placeholder="Unit" value="" required>
+                            <div class="invalid-feedback">Please enter unit</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="unitCost" class="form-label">@SharedHtmlLocalizer["unit_cost"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="unitCost" id="unitCost" aria-describedby="UnitCost" placeholder="Unit Cost" value="" required>
+                            <div class="invalid-feedback">Please enter unit cost</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">@SharedHtmlLocalizer["quantity"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="quantity" id="quantity" aria-describedby="Quantity" placeholder="Quantity" value="" required>
+                            <div class="invalid-feedback">Please enter quantity</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="costPrice" class="form-label">@SharedHtmlLocalizer["cost_price"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="costPrice" id="costPrice" aria-describedby="CostPrice" placeholder="Cost Price" value="" required>
+                            <div class="invalid-feedback">Please enter cost price</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["save"]</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/InventoryManagement/InventoryItem/InventoryItem_Datatable.js" asp-append-version="true"></script>

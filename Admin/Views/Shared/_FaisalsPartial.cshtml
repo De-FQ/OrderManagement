@@ -1,0 +1,36 @@
+﻿                <!-- ========== Start Card Block ========== -->
+<section class="card mb-3 disabled" data-bs-toggle="tooltip" data-bs-title=@SharedHtmlLocalizer["to_add_faisals_to_this_faisal_type_please_first_save_the_current_faisal_type"]>
+    <header class="card-header d-flex justify-content-between align-items-center p-3 ">
+        <h2 class="card-title ">@SharedHtmlLocalizer["faisals"]</h2>
+        <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+            <button class="btn btn-primary add-faisal-button btn-sm " onclick="window.location = 'add-new-faisal.html';"><i class="fas fa-plus me-1"></i> Add Faisal</button>
+        </div>
+    </header>
+    <div class="card-body ">
+        <div class="row g-3">
+            <div class="col-12">
+                <!-- ========== Start Table Block ========== -->
+                <table class="table align-middle mobile-optimised datatable-default-" id="datatable-default-">
+                    <thead>
+                        <tr>
+                            <th data-priority="0" class="text-start">@SharedHtmlLocalizer["no"]</th>
+                            <th data-priority="1" class="text-start">@SharedHtmlLocalizer["status"]</th>
+                            <th data-priority="2" class="text-start">@SharedHtmlLocalizer["title"]</th>
+                            <th data-priority="3" class="text-start">@SharedHtmlLocalizer["thumbnail_image"]</th>
+                            <th data-priority="5" class="text-start">@SharedHtmlLocalizer["last_updated"]</th>
+                            <th data-priority="1" class="text-end">@SharedHtmlLocalizer["actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                    </tbody>
+                </table>
+                <!-- ========== End Table Block ========== -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========== End Card Block ========== -->
+
+
+
+

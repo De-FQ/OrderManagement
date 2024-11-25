@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_us" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="already_ticket_generated" xml:space="preserve">
+    <value>Ticket already generated</value>
+  </data>
+  <data name="area_name_already_exists" xml:space="preserve">
+    <value>Area Name Already Exists</value>
+  </data>
+  <data name="at" xml:space="preserve">
+    <value>at</value>
+  </data>
+  <data name="a_request_has_been_received_to_change_the_password_for_your_account_registered_with_email_address" xml:space="preserve">
+    <value>A request has been received to change the password for your account registered with email address</value>
+  </data>
+  <data name="bad" xml:space="preserve">
+    <value>Bad</value>
+  </data>
+  <data name="cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="civil_id_is_already_registered" xml:space="preserve">
+    <value>Civil ID is already registered</value>
+  </data>
+  <data name="company_added_successfully" xml:space="preserve">
+    <value>Company Added Successfully</value>
+  </data>
+  <data name="company_name_already_exists" xml:space="preserve">
+    <value>Company Name Already Exists</value>
+  </data>
+  <data name="company_publish_limit_is_reached" xml:space="preserve">
+    <value>Company publish limit is reached</value>
+  </data>
+  <data name="company_upload_limit_is_reached" xml:space="preserve">
+    <value>Company upload limit is reached</value>
+  </data>
+  <data name="completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="counter_name_already_exists" xml:space="preserve">
+    <value>Counter name already exists</value>
+  </data>
+  <data name="create_password" xml:space="preserve">
+    <value>Create Password</value>
+  </data>
+  <data name="currently_service_is_not_available" xml:space="preserve">
+    <value>Currently Service is not available.</value>
+  </data>
+  <data name="customer_not_exists" xml:space="preserve">
+    <value>User does not exist</value>
+  </data>
+  <data name="days_days_remaining" xml:space="preserve">
+    <value>({0} Days Remaining)</value>
+  </data>
+  <data name="department_name_already_exists" xml:space="preserve">
+    <value>department name already exists</value>
+  </data>
+  <data name="document_uploaded_successfully" xml:space="preserve">
+    <value>Document Uploaded Successfully</value>
+  </data>
+  <data name="email_is_already_taken" xml:space="preserve">
+    <value>email is already taken</value>
+  </data>
+  <data name="entered_otp_has_expired" xml:space="preserve">
+    <value>Entered OTP has expired</value>
+  </data>
+  <data name="entered_otp_is_incorrect" xml:space="preserve">
+    <value>Entered OTP is incorrect</value>
+  </data>
+  <data name="entered_password_is_incorrect" xml:space="preserve">
+    <value>Entered password is incorrect</value>
+  </data>
+  <data name="estimated_waiting_time" xml:space="preserve">
+    <value>Estimated waiting time</value>
+  </data>
+  <data name="expired" xml:space="preserve">
+    <value>(Expired)</value>
+  </data>
+  <data name="feedback_submitted" xml:space="preserve">
+    <value>Feedback submitted!</value>
+  </data>
+  <data name="file_size_exceed_1_mb" xml:space="preserve">
+    <value>File size exceed 1 MB</value>
+  </data>
+  <data name="folder_name_exist" xml:space="preserve">
+    <value>Folder Name Exist</value>
+  </data>
+  <data name="get_in_touch_submit" xml:space="preserve">
+    <value>Your message has been submitted. We will get back to you soon.</value>
+  </data>
+  <data name="governorate_name_already_exists" xml:space="preserve">
+    <value>Governorate Name Already Exists</value>
+  </data>
+  <data name="great" xml:space="preserve">
+    <value>Great</value>
+  </data>
+  <data name="has_been_registered_with_sera_please_set_your_password_using_the_button_below" xml:space="preserve">
+    <value>has been registered with SERA. Please set your password using the button below.</value>
+  </data>
+  <data name="hi" xml:space="preserve">
+    <value>Hi</value>
+  </data>
+  <data name="hold" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="http_500_internal_server_error" xml:space="preserve">
+    <value>Something went wrong. Please try again later.</value>
+  </data>
+  <data name="inactive_customer" xml:space="preserve">
+    <value>Inactive Customer</value>
+  </data>
+  <data name="InternalServerError" xml:space="preserve">
+    <value>Something went wrong. Please try again later.</value>
+  </data>
+  <data name="internal_server_error" xml:space="preserve">
+    <value>Something went wrong. Please try again later.</value>
+  </data>
+  <data name="invalid_login_details" xml:space="preserve">
+    <value>Invalid Login Details</value>
+  </data>
+  <data name="invalid_login_message" xml:space="preserve">
+    <value>The login details you entered are either incorrect or the user does not exist. Please verify the login details and try again.</value>
+  </data>
+  <data name="mark_as_read" xml:space="preserve">
+    <value>Mark as Read</value>
+  </data>
+  <data name="mark_as_unread" xml:space="preserve">
+    <value>Mark as Unread</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="mobile_number_is_already_registered" xml:space="preserve">
+    <value>Mobile number is already registered</value>
+  </data>
+  <data name="new_account_confirmation" xml:space="preserve">
+    <value>New Account Confirmation</value>
+  </data>
+  <data name="new_record_created_successfully" xml:space="preserve">
+    <value>New record created successfully</value>
+  </data>
+  <data name="new_version_is_available_on_appstore_please_download" xml:space="preserve">
+    <value>New version is available on AppStore please download</value>
+  </data>
+  <data name="new_version_is_available_on_play_store_please_download" xml:space="preserve">
+    <value>New version is available on Play Store please download</value>
+  </data>
+  <data name="no_companies_available" xml:space="preserve">
+    <value>No Companies Available</value>
+  </data>
+  <data name="no_notifications" xml:space="preserve">
+    <value>No notifications</value>
+  </data>
+  <data name="no_services_available" xml:space="preserve">
+    <value>No Services Available</value>
+  </data>
+  <data name="no_show" xml:space="preserve">
+    <value>No Show</value>
+  </data>
+  <data name="no_tickets" xml:space="preserve">
+    <value>No tickets</value>
+  </data>
+  <data name="officer_hold" xml:space="preserve">
+    <value>Officer Hold</value>
+  </data>
+  <data name="okay" xml:space="preserve">
+    <value>Okay</value>
+  </data>
+  <data name="password_incorrect" xml:space="preserve">
+    <value>Password Incorrect</value>
+  </data>
+  <data name="password_is_wrong" xml:space="preserve">
+    <value>Password is wrong</value>
+  </data>
+  <data name="password_reset" xml:space="preserve">
+    <value>Password Reset</value>
+  </data>
+  <data name="please_enter_valid_folder_name" xml:space="preserve">
+    <value>Please enter valid Folder Name</value>
+  </data>
+  <data name="profile_updated_successfully" xml:space="preserve">
+    <value>Profile Updated Successfully</value>
+  </data>
+  <data name="reconfigure_all_existing_services_on_adding_a_new_level" xml:space="preserve">
+    <value>Reconfigure all existing services on adding a new level</value>
+  </data>
+  <data name="reset_password" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="sera_team" xml:space="preserve">
+    <value>SERA Team</value>
+  </data>
+  <data name="service_limit_reached" xml:space="preserve">
+    <value>Service limit reached</value>
+  </data>
+  <data name="serving_now" xml:space="preserve">
+    <value>Serving Now</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>success</value>
+  </data>
+  <data name="thank_you" xml:space="preserve">
+    <value>Thank You</value>
+  </data>
+  <data name="ticket_cancelled_successfully" xml:space="preserve">
+    <value>Ticket cancelled Successfully</value>
+  </data>
+  <data name="ticket_generated_successfully" xml:space="preserve">
+    <value>Ticket Generated Successfully</value>
+  </data>
+  <data name="upload_limit_is_reached" xml:space="preserve">
+    <value>Upload limit is reached</value>
+  </data>
+  <data name="user_created_successfully" xml:space="preserve">
+    <value>user created successfully</value>
+  </data>
+  <data name="user_not_exist" xml:space="preserve">
+    <value>User not exist</value>
+  </data>
+  <data name="waiting" xml:space="preserve">
+    <value>Waiting</value>
+  </data>
+  <data name="your_email" xml:space="preserve">
+    <value>Your email</value>
+  </data>
+  <data name="your_ticket_is_now_on_hold" xml:space="preserve">
+    <value>Your Ticket is now on hold</value>
+  </data>
+  <data name="your_ticket_is_under_process" xml:space="preserve">
+    <value>Your ticket is under process</value>
+  </data>
+  <data name="your_ticket_resumed" xml:space="preserve">
+    <value>Your Ticket Resumed</value>
+  </data>
+  <data name="you_have_already_used_the_hold_option" xml:space="preserve">
+    <value>You have already used the hold option</value>
+  </data>
+  <data name="you_need_to_be_at_the_location_to_access_the_services" xml:space="preserve">
+    <value>You need to be at the location to access the services</value>
+  </data>
+</root>

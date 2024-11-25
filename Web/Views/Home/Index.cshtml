@@ -1,0 +1,118 @@
+﻿@model Utility.Models.Base.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+        }
+
+        .login-logo {
+            position: absolute;
+            top: -60px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .form-group label {
+            font-weight: 500;
+        }
+
+        .form-group span {
+            font-size: 14px;
+        }
+
+        .login-container p {
+            text-align: center;
+            margin-top: 15px;
+            color: #6c757d;
+        }
+
+            .login-container p a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .login-container p a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+
+</head>
+<body>
+    @await Html.PartialAsync("_Head")
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="login-container">
+            <!-- Add logo here -->
+            <img src="~/assets/img/fav/logo.png" alt="Logo" class="login-logo">
+            <h2>Cashier Login</h2>
+            <form id="loginForm" method="post" asp-action="Login" asp-controller="UserAuth">
+                <div class="form-group">
+                    <label asp-for="EmailAddress">Email</label>
+                    <input asp-for="EmailAddress" id="email" class="form-control" type="email" placeholder="Enter your email" required />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" id="password" class="form-control" type="password" placeholder="Enter your password" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    @Html.PartialAsync("_ValidationScriptsPartial")
+</body>
+</html>

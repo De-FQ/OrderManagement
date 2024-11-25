@@ -1,0 +1,155 @@
+﻿
+.custom-modal-content {
+    background-color: rgba(45, 45, 45, 0.5); /* Dark background */
+    color: #ffffff; /* White text */
+    border-radius: 20px; /* Rounded corners */
+    padding: 30px;
+    position: relative;
+    height:600px;
+}
+
+.modal-header {
+    border-bottom: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+    .modal-header .close {
+        padding: 0rem 0rem;
+        color: #ffffff;
+        font-size: 45px;
+        opacity: 1;
+    }
+
+.modal-title {
+    display: none;
+}
+
+.modal-body {
+    padding-top: 0px; /* Adjust for header */
+}
+
+    .modal-body p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+.form-group {
+margin-left : 226px;
+}
+.form-group label {
+    color: #ff69b4; /* Light pink color */
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ff69b4; /* Light pink border */
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+#totalPrice {
+    color: #ff69b4; /* Light pink color */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-footer {
+    border-top: none;
+    justify-content: center;
+}
+
+
+
+.btn-primary {
+    background-color: #ff69b400;
+    border-color: #ff69b4;
+    color: wheat;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 46px;
+    border-style: solid;
+    border-width: 4px;
+}
+
+.big-tub-container {
+    position: relative;
+    width: 100%;
+    margin-top: -550px;
+    display: flex;
+    justify-content: center;
+}
+
+.big-tub {
+    width: 600px;
+    height: auto;
+    position: relative;
+    top: 400px;
+    right: 200px;
+}
+
+.small-tub-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 155px;
+}
+
+.small-tub {
+    margin-left: 335px;
+    width: auto;
+    height: 150px;
+    margin-right: 100px; /* Space between small tubs */
+}
+
+.small-tubs {
+    width: auto;
+    height: 150px;
+    margin-right: 30px; /* Space between small tubs */
+}
+
+.scoop-section {
+    margin-left: 240px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.scoop-item {
+    text-align: center;
+}
+
+.scoop-items {
+    margin-right: 200px;
+    text-align: center;
+}
+
+.small-input {
+    margin-left: 133px;
+    width: 100px; /* Adjust width as needed */
+    padding: 0.375rem 0.75rem; /* Adjust padding for better appearance */
+    font-size: 14px; /* Adjust font size as needed */
+}
+
+.modalheadingstyle {
+    position: absolute;
+    top: 710px;
+    right: 45px;
+    color: #ff69b4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.custom-modal-background {
+    background-image: url('~/assets/img/bgimg/bgimgs.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+

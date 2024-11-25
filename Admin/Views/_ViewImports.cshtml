@@ -1,0 +1,16 @@
+﻿@using Admin
+@using Admin.Models@*
+@using Utility.Models.Admin.UserManagement*@
+@using Utility.Models.Base
+@using Utility.Enum
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Http  
+@inject IHtmlLocalizer<SharedResource> SharedHtmlLocalizer
+@inject IViewLocalizer localizer
+@inject IStringLocalizer<SharedResource> SharedLocalizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 

@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/cone.css">
+    <link rel="stylesheet" href="~/css/conemodal.css">
+    <link rel="stylesheet" href="~/css/sidenav.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+</head>
+<body>
+    @await Html.PartialAsync("_Backhead")
+    <!-- Side Navbar Partial--> @await Html.PartialAsync("_SideNav")
+    <!-- Side Navbar Partial Ends-->
+    <!-- start of page content -->
+    <div class="cart-container" style="z-index:9999; margin-top: 135px;">
+        <div class="cart-header">
+            <img src="~/assets/img/icecream/iceice.png" alt="Ice Cream Cart">
+            <h1>Ice Cream Cart</h1>
+            <div class="total-items">Total Items: <span>0</span></div>
+        </div>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cart items will be dynamically generated here -->
+            </tbody>
+        </table>
+        <div class="total-amount">
+            <h2>Total Payment: <span id="totalAmount">0</span> Rs.</h2>
+        </div>
+        <div class="amount-paid">
+            <label for="amountPaid">Cash Received:</label>
+            <input type="number" id="amountPaid" step="0.01" min="0">
+        </div>
+        <div class="change-amount">
+            <h2>Cash Refund: <span id="changeAmount">0.00</span> Rs.</h2>
+        </div>
+        <button class="btn btn-success print-btn" onclick="printReceipt()">Print Receipt</button>
+    </div>
+    <!-- Modal Partial List--> @await Html.PartialAsync("Modals/Cone/_ConeModal")
+    <!-- Modal Partial List Ends-->
+    <div id="toast-container" aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/sidenav.js"></script>
+    <script src="~/js/conemodal.js"></script>
+    <script src="~/js/checkout.js"></script>
+    <script src="~/js/holdorder.js"></script>
+
+</body>
+</html>

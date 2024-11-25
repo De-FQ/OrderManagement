@@ -1,0 +1,118 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["Product Prices"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/ProductPrice/AddEdit";
+}
+@await Html.PartialAsync("_PageHeaderPartial", title)
+
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-lg-4 mb-3">
+                <label for="childCategoryFilter" class="form-label">@SharedHtmlLocalizer["Child Category"]<span class="text-danger">*</span> </label>
+                <select class="form-select" name="childCategoryFilter" id="childCategoryFilter" dir="ltr" aria-describedby="ChildCategory">
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3">
+                <label for="priceTypeCategoryFilter" class="form-label">@SharedHtmlLocalizer["Price Type Category"]<span class="text-danger">*</span> </label>
+                <select class="form-select" name="priceTypeCategoryFilter" id="priceTypeCategoryFilter" dir="ltr" aria-describedby="PriceTypeCategory">
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3">
+                <label for="priceTypeFilter" class="form-label">@SharedHtmlLocalizer["Price Type"]<span class="text-danger">*</span> </label>
+                <select class="form-select" name="priceTypeFilter" id="priceTypeFilter" dir="ltr" aria-describedby="PriceType">
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        <table class="table align-middle mobile-optimised" id="datatable-default-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo."]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Active"]</th>
+                    <th data-priority="3" class="text-left">@SharedHtmlLocalizer["Prices"]</th>
+                    <th data-priority="4" class="text-start">@SharedHtmlLocalizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="modal fade" id="update_productPriceModal" tabindex="-1" aria-labelledby="update_productPriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_productPriceModalLabel">@SharedHtmlLocalizer["Edit"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" value="" />
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="childCategory" class="form-label">@SharedHtmlLocalizer["Child Category"]:</label>
+                            <select class="form-select" name="childCategory" id="childCategory" dir="ltr" aria-describedby="PriceTypeCategory">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="priceTypeCategory" class="form-label">@SharedHtmlLocalizer["Price Type Category"]:</label>
+                            <select class="form-select" name="priceTypeCategory" id="priceTypeCategory" dir="ltr" aria-describedby="PriceTypeCategory">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="priceType" class="form-label">@SharedHtmlLocalizer["Price Type"]:</label>
+                            <select class="form-select" name="priceType" id="priceType" dir="ltr" aria-describedby="PriceTypeCategory">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="col-form-label">@SharedHtmlLocalizer["Product Price"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="productPrice" id="productPrice" aria-describedby="ProductPrice" placeholder="Product Price" value="" required>
+                            <div class="invalid-feedback">Please enter product price</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Sasve"]</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["Close"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/General/ProductPrice/ProductPrice_Datatable.js" asp-append-version="true"></script>

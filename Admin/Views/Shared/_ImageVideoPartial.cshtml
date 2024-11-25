@@ -1,0 +1,82 @@
+﻿<div class="col-12">
+    <label class="form-label">@SharedHtmlLocalizer["banner_type"]</label>
+    <div class="form-check">
+        <input class="form-check-input" data-radio-conditional-display="BannerTypeImage" type="radio" name="mediaFileType" id="BannerType-Image" value="@((Int32)MediaFileType.Image)" checked>
+        <label class="form-check-label" for="BannerType-Image">
+            @SharedHtmlLocalizer["image"]
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" data-radio-conditional-display="BannerTypeVideo" type="radio" name="mediaFileType" id="BannerType-Video" value="@((Int32)MediaFileType.Video)">
+        <label class="form-check-label" for="BannerType-Video">
+            @SharedHtmlLocalizer["video"]
+        </label>
+    </div>
+</div>
+<div class="col-12" data-content-display="BannerTypeImage">
+    <div class="row g-3">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-10 mb-3">
+                    <input type="hidden" id="hdBannerId" />
+                    <label for="upload-image-BannerImage" class="form-label">@SharedHtmlLocalizer["banner_image"]<span class="text-danger">*</span></label>
+                    <div class="input-group has-validation">
+                        <input class="form-control enable-compression" type="file" name="uploadimageBannerImage" id="uploadimageBannerImage">
+                        <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <small class="form-text text-muted">
+                        @SharedHtmlLocalizer["for_consistency_purposes_please_upload_all_image_at_the_size_1920x1080_px_in_png_or_jpg_format"]
+                    </small>
+                </div>
+                <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                    <img src="holder.js/1920x1080?auto=yes&size=200" class="img-fluid preview-image previewimageBannerImage" id="previewimageBannerImage">
+                    <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["preview"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12" data-content-display="BannerTypeVideo">
+    <div class="row g-3">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-8 mb-3">
+                    <label for="upload-image-BannerVideo" class="form-label">@SharedHtmlLocalizer["video"]<span class="text-danger">*</span></label>
+                    <div class="input-group has-validation">
+                        <input class="form-control " type="file" accept="video/mp4"  name="uploadimageBannerVideo" id="uploadimageBannerVideo">
+                        <span class="input-group-text">
+                            <a href="javascript:;" id="a-video-url" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a>
+                        </span>
+                        <div class="invalid-feedback">@SharedHtmlLocalizer["acceptable_file_formats_are_jpg_png_gif_jpeg_pdf_maximum_upload_size_is_5mb_per_file"]</div>
+                    </div>
+                    <small class="form-text text-muted">@SharedHtmlLocalizer["upload_video_in_1920x1080_resolution_keep_the_video_less_than_20_seconds"]</small>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center"> 
+                    <video width="200px" height="auto" controls="" id="previewImageBannerVideo">
+                        <source src="holder.js/1920x1080?auto=yes&size=200" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-10 mb-3">
+                    <label for="upload-image-BannerVideoPoster" class="form-label">@SharedHtmlLocalizer["video_poster_image"]<span class="text-danger">*</span></label>
+                    <div class="input-group has-validation">
+                        <input class="form-control enable-compression" type="file" name="uploadimageBannerVideoPoster" id="uploadimageBannerVideoPoster">
+                        <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <small class="form-text text-muted">
+                        @SharedHtmlLocalizer["for_consistency_purposes_please_upload_all_image_at_the_size_1920x1080_px_in_png_or_jpg_format"]
+                    </small>
+                </div>
+                <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                    <img src="holder.js/1920x1080?auto=yes&size=200" class="img-fluid preview-image previewimageBannerVideoPoster" id="previewimageBannerVideoPoster">
+                    <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["preview"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@{
+    var userName = Context.Session.GetString("UserName");
+    var userRole = Context.Session.GetString("UserRole");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/sidenav.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+        /* Enhanced responsiveness */
+      
+    </style>
+</head>
+
+<body>
+
+    @await Html.PartialAsync("_Backhead")
+    @await Html.PartialAsync("_Head")
+    
+    <div class="search-bar-container">
+        <input type="text" id="categorySearch" class="search-bar" placeholder="Search Category or Subcategory" onkeyup="filterCategories()">
+        <button type="button" class="search-button" onclick="filterCategories()">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    @await Html.PartialAsync("_CategoryMenu")
+
+    <div class="container mt-4">
+        <div class="row" id="categoryContainer">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_Checkout")
+    <script src="~/js/categories.js"></script>
+    <script src="~/js/checkout.js"></script>
+    <script src="~/js/cart.js"></script>
+    <script src="~/js/confirmOrder.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "1 Litre Pack";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Parlor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/litre.css">
+    <link rel="stylesheet" href="~/css/sidenav.css">
+    <link rel="stylesheet" href="~/css/litremodal.css">
+    <link rel="stylesheet" href="~/css/checkout.css">
+</head>
+<body>
+    <img class="icy" src="~/assets/img/icyice.png" />
+    <div class="header">
+        <span class="toggle-btn" id="toggle-btn">&#9776;</span>
+        <a href="@Url.Action("CheckoutData", "Checkout" )">
+            <button id="checkout-btn" class="chkbtn btn btn-primary">
+                <img src="~/assets/img/icecream/iceice.png" alt="Checkout Icon" />
+            </button>
+        </a>
+        <a href="@Url.Action("Index", "Home" )">
+            <button class="chkbtns btn btn-primary">
+                <img src="~/assets/img/icecream/home.png" alt="Home" />
+            </button>
+        </a>
+    </div>
+    <!-- Side Navbar Partial--> @await Html.PartialAsync("_SideNav")
+    <!-- Side Navbar Partial Ends-->
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4">1 Litre Pack</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="ice-cream-flavors">
+                    <!-- First row of flavors (6 flavors) -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/chocolatecoco.png" alt="Chocolate Coco" data-toggle="modal" data-target="#chocolatecocoModal">
+                                <p>
+                                    Chocolate Coco <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/strawberry.png" alt="Strawberry" data-toggle="modal" data-target="#strawberryModal">
+                                <p>
+                                    Strawberry <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/mango.png" alt="Mango" data-toggle="modal" data-target="#mangoModal">
+                                <p>
+                                    Mango <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/kulfa.png" alt="Kulfa" data-toggle="modal" data-target="#kulfaModal">
+                                <p>
+                                    Kulfa <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/Pista.png" alt="Pistachio" data-toggle="modal" data-target="#pistaModal">
+                                <p>
+                                    Pistachio <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/vanilla.png" alt="Vanilla" data-toggle="modal" data-target="#vanillaModal">
+                                <p>
+                                    Vanilla <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ice-cream-flavors">
+                    <!-- Second row of flavors (remaining 6 flavors) -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/coconut.png" alt="Coconut" data-toggle="modal" data-target="#coconutModal">
+                                <p>
+                                    Coconut <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/dairymilk.png" alt="Dairy Milk" data-toggle="modal" data-target="#dairymilkModal">
+                                <p>
+                                    Dairy Milk <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/oreo.png" alt="Oreo" data-toggle="modal" data-target="#oreoModal">
+                                <p>
+                                    Oreo <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/darkchoco.png" alt="Dark Choco" data-toggle="modal" data-target="#darkchocoModal">
+                                <p>
+                                    Dark Choco <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/mughlia.png" alt="Mughia" data-toggle="modal" data-target="#mughliaModal">
+                                <p>
+                                    Mughia <br>
+                                    <span class="rate">1 Litre Tub Rs.1000</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="flavor">
+                                <img src="~/assets/img/tub/small/blueberry.png" alt="Blue Berry" data-toggle="modal" data-target="#blueberryModal">
+                                <p>
+                                    Blue Berry <br>
+                                    <span class="rate">1 Litre Tub Rs.1000 </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal Partial List--> @await Html.PartialAsync("Modals/Litre/_LitreModal")
+    <!--Modal Partial List Ends-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/sidenav.js"></script>
+    <script src="~/js/litremodal.js"></script>
+</body>
+</html>

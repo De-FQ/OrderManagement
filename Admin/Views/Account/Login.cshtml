@@ -1,0 +1,152 @@
+﻿@model Utility.Models.Base.LoginModel  
+@{
+    Layout = "~/Views/Shared/_LayoutCommon.cshtml"; 
+    var returnUrl = ViewData["ReturnUrl"] as string;
+
+}
+<title>@SharedHtmlLocalizer["Sign In"] || @SharedHtmlLocalizer["Admin"]</title>
+
+
+<video class="video-background" autoplay muted loop>
+    <source src="~/assets/img/backclip3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<section class="body-sign" style="max-width: 600px; position: relative; z-index: 999;">
+    <div class="center-sign">
+        <div class="panel card-sign">
+            <div class="card-title-sign d-flex mt-3">
+                <a href="/" class="logo d-block">
+                    <img src="/assets/img/logo4.png" height="50" alt="@SharedHtmlLocalizer["brand_logo"]" />
+                </a>
+                <h2 class="ms-auto title text-uppercase font-weight-bold m-0"><i class="bx bx-user-circle me-1 text-6 position-relative top-5"></i> @SharedHtmlLocalizer["sign_in"]</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Longitude" id="Longitude" value="0" />
+                    <input type="hidden" asp-for="Latitude" id="Latitude" value="0" />
+                    <input type="hidden" asp-for="ReturnUrl" name="returnUrl" id="returnUrl" value="@returnUrl" />
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="emailAddress" class="form-label">@SharedHtmlLocalizer["Email Address"]<span class=" text-danger">*</span></label>
+                            <input type="email" dir="ltr" class="form-control" name="emailAddress" id="emailAddress" aria-describedby="@SharedHtmlLocalizer["email_address"]" placeholder="@SharedHtmlLocalizer["email_address"]" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12">
+                            <label for="password" class="form-label">@SharedHtmlLocalizer["Password"]<span class=" text-danger">*</span></label>
+                            <div class="input-group has-validation password-field">
+                                <input type="password" dir="ltr" class="form-control " name="password" id="password" aria-describedby="@SharedHtmlLocalizer["password"]" placeholder="@SharedHtmlLocalizer["password"]" value="">
+                                <span class="input-group-text password-peeker bg-light">
+                                    <i class="fa-regular fa-eye"></i>
+                                </span>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-3">
+                        <div class="col-sm-8">
+                            <div class="form-check">
+                             @*   <input class="form-check-input " type="checkbox" name="" id="">
+                                <label class="form-check-label" for="">Remember Me </label>*@
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4 text-start text-sm-end">
+                            <button id="btnSave" class="btn fw-bold btn-secondary mt-3 mt-sm-0">@SharedHtmlLocalizer["Sign In"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p class="text-center text-muted mt-3 mb-3">&copy; Global Techno Soft Copyright @DateTime.Now.Year. All Rights Reserved.</p>
+    </div>
+</section>
+
+
+
+
+@{
+    await Html.RenderPartialAsync("_ResoursesModalPartial");
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+<script>
+    $(document).ready(function () {
+        setup();
+       // getGeolocation(); 
+    });
+
+    setup = () => {
+        $("#dataForm").validate({
+            rules: {
+                emailAddress: {
+                    required: true,
+                    regex: /^([a-zA-Z0-9_.+-])+\@@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+                    email: true,
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                emailAddress: {
+                    required: Resources.email_is_required,
+                    regex: Resources.please_enter_valid_email,
+                    email: Resources.please_enter_valid_email
+                },
+                password: {
+                    required: Resources.password_is_required
+                }
+            },
+            submitHandler: function (form, event) {
+                event.preventDefault();
+                saveData();
+            },
+            errorPlacement: function ($error, $element) {
+                if ($element.siblings(".invalid-feedback").length)
+                    $element.siblings(".invalid-feedback").html($error);
+            }
+        });
+    };
+
+    saveData = () => {
+        showLoader(); 
+        $.post("Login", {
+            emailAddress: getTextValue('emailAddress'),
+            password: getTextValue('password'),
+            returnUrl: getTextValue("returnUrl")
+        }, function (result) { 
+         
+            if (result.success) { 
+                setTimeout(() => location.href = result.redirectionUrl, 100);
+            }
+            else {
+                if (result.message != "")
+                    console.log(result);
+                    ToastAlert("error", result.title , result.message);
+            }
+        }).done(function (data, status, xhr) {
+            hideLoader();
+        });
+    };
+
+    getGeolocation = () => {
+        $("#btnUserLogin").prop("disabled", true);
+        setTimeout(function () {
+            $("#btnUserLogin").removeAttr('disabled');
+        }, 1000);
+
+        if (navigator.geolocation) {
+            parseFloat(navigator.geolocation.getCurrentPosition(showPosition));
+        } else {
+            lat = "Geolocation is not supported by this browser.";
+            long = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    showPosition = (position) => {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        $('#Latitude').val(lat);
+        $('#Longitude').val(long);
+    }
+
+</script>

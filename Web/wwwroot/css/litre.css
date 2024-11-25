@@ -1,0 +1,32 @@
+﻿body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.ice-cream-flavors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flavor {
+    margin: 15px;
+    text-align: center;
+}
+
+    .flavor img {
+        width: 180px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .flavor p {
+        margin-left:8px;
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }

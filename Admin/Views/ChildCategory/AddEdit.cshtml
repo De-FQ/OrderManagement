@@ -1,0 +1,115 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["Edit"].Value : @SharedHtmlLocalizer["Add"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                    <!-- Excel File Input and Import Button -->
+                    <input type="file" id="childCategoryExcelFile" class="form-control me-2" accept=".xlsx, .xls">
+                    <button type="button" id="btnImport" class="btn btn-info" onclick="importChildCategoriesFromExcel();">
+                        @SharedHtmlLocalizer["Import Excel"]
+                    </button>
+                </div>
+            </header>
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="categoryList" class="form-label">@SharedHtmlLocalizer["Category"]<span class="text-danger">*</span> </label>
+                            <select class="form-select" name="categoryList" id="categoryList" dir="ltr" aria-describedby="Category">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="subCategoryList" class="form-label">@SharedHtmlLocalizer["Sub Category"]<span class="text-danger">*</span> </label>
+                            <select class="form-select" name="subCategoryList" id="subCategoryList" dir="ltr" aria-describedby="SubCategory">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="childCategoryName" class="form-label">@SharedHtmlLocalizer["Name"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="childCategoryName" id="childCategoryName" aria-describedby="ChildCategory Name" placeholder="ChildCategory Name" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="description" class="form-label">@SharedHtmlLocalizer["Description"]<span class="text-danger">*</span></label>
+                            <textarea dir="ltr" class="form-control" name="description" id="description" aria-describedby="Description" placeholder="Description"></textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <div class="row">
+                                <!-- ========== Start Simple Image Upload Block ========== -->
+                                <div class="row">
+                                    <div class="col-10 mb-3">
+                                        <label for="imageFile" class="form-label">@SharedHtmlLocalizer["Upload Image"]<span class="text-danger">*</span></label>
+                                        <input class="form-control enable-compression" type="file" name="imageFile" id="imageFile">
+                                        <small class="form-text text-muted">@SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_100x100_px_in_jpg_or_png_format"]</small>
+                                        <div class="invalid-feedback">
+                                            @SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_100x100_px_in_jpg_or_png_format"]
+                                        </div>
+                                    </div>
+                                    <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                                        <img src="/assets/img/default.png" class="img-fluid preview-image" name="imagePreview" id="imagePreview">
+                                        <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["Preview"]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="discountActive" name="discountActive" @(Model.DiscountActive ? "checked" : "")>
+                                <label for="discountActive" class="form-check-label">@SharedHtmlLocalizer["Activate Discount"]</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="discountPercentage" class="form-label">@SharedHtmlLocalizer["Discount Percentage"]</label>
+                            <input type="number" class="form-control" id="discountPercentage" name="discountPercentage" min="0" max="100" value="@Model.DiscountPercentage ?? 0">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["Back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/Categories/ChildCategory/ChildCategory_CRUD.js" asp-append-version="true"></script>

@@ -1,0 +1,162 @@
+﻿
+@{
+    var requestCultureFeature = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+<!DOCTYPE html>
+<html lang="@SharedHtmlLocalizer["HTMLLang"]" dir="@SharedHtmlLocalizer["HTMLDir"]">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content="@SharedHtmlLocalizer["meta_keywords"]" />
+    <meta name="description" content="@SharedHtmlLocalizer["meta_description"]">
+    <meta name="author" content="@SharedHtmlLocalizer["meta_author"]">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/fav/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+ 
+    <!-- Theme CSS -->
+    @if (requestCultureFeature != "ar")
+    {
+        <link rel="stylesheet" href="~/assets/css/theme.min.css" asp-append-version="true">
+        
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/assets/css/theme.min.css" asp-append-version="true">
+    }
+   
+    <!-- Head Libs -->
+    <script src="/assets/vendor/js/jquery.js"></script>
+    <script src="/assets/vendor/js/modernizr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+
+    <div class="position-fixed vw-100 vh-100 top-0 start-0 bg-light loader-container" style="z-index: 999999; --bs-bg-opacity: .5;display: none;">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">@SharedHtmlLocalizer["loading"]</span>
+            </div>
+            <h4>@SharedHtmlLocalizer["loading"]</h4>
+        </div>
+    </div>
+    <section class="body">
+        <header class="header">
+            @await Component.InvokeAsync("NavigationHeader")
+        </header>
+        <div class="inner-wrapper">
+            @await Component.InvokeAsync("NavigationMenu")
+            <section role="main" class="content-body">
+                @RenderBody()
+            </section>
+        </div>
+    </section>
+    @*<partial name="~/Views/UIComponents/_DisplayOrderModel.cshtml" />*@
+    <partial name="~/Views/UIComponents/_DeleteModel.cshtml" />  
+    <!-- Vendor -->
+    <script src="/assets/vendor/js/jquery.browser.mobile.js"></script>
+    <script src="/assets/vendor/js/popper.min.js"></script>
+    <script src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/js/bootstrap-datepicker.js"></script>
+    <script src="/assets/vendor/js/common.js"></script>
+    <script src="/assets/vendor/js/nanoscroller.js"></script>
+    <script src="/assets/vendor/js/jquery.magnific-popup.js"></script>
+    <script src="/assets/vendor/js/jquery.placeholder.js"></script>
+@*    <link  href="/assets/vendor/css/select2.css" rel="stylesheet" /> 
+    <link  href="/assets/vendor/css/select2-bootstrap.min.css" rel="stylesheet" />*@
+    <link  href="/assets/vendor/css/rowReorder.dataTables.min.css" rel="stylesheet" />
+    <script src="/assets/vendor/js/holder.min.js"></script>
+    <script src="/assets/vendor/js/select2.js"></script>
+    <script src="/assets/vendor/js/bootstrap-multiselect.js"></script>
+    <script src="/assets/vendor/js/compressor.min.js"></script>
+    <script src="/assets/vendor/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/vendor/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/assets/vendor/js/dataTables.responsive.min.js"></script>
+    <script src="/assets/vendor/js/dataTables.buttons.min.js"></script>
+    <script src="/assets/vendor/js/dataTables.rowReorder.min.js"></script>
+    <script src="/assets/vendor/js/buttons.bootstrap4.min.js"></script>
+    <script src="/assets/vendor/js/buttons.html5.min.js"></script>
+    <script src="/assets/vendor/js/buttons.print.min.js"></script>
+    <script src="/assets/vendor/js/jszip.min.js"></script>
+    <script src="/assets/vendor/js/pdfmake.min.js"></script>
+    <script src="/assets/vendor/js/vfs_fonts.js"></script>
+    <!-- Switch -->
+    <script src="/assets/vendor/js/ios7-switch.js"></script>
+    <!-- Theme Base, Components and Settings -->
+    <script src="/assets/vendor/js/theme.js"></script>
+    <!-- Theme Custom -->
+    <script src="/assets/vendor/js/custom.js"></script>
+    <!-- Theme Initialization Files -->
+    <script src="/assets/vendor/js/theme.init.js"></script>
+
+    <!-- ========== Start SUMMERNOTE CSS + JS ========== -->
+
+    <link rel="stylesheet" href="/assets/vendor/css/summernote-lite.css" />
+    <script src="/assets/vendor/js/summernote-lite.js"></script>
+
+    <!-- ========== End SUMMERNOTE CSS + JS ========== -->
+
+  @*  <footer class="footer py-2 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-light">
+                    <p class="text-center text-white mt-3 mb-3">&copy; Copyright @DateTime.Now.Year @SharedHtmlLocalizer["all_rights_reserved"].</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>*@
+     
+
+    <script src="/assets/js/main.js"></script>
+    <environment include="Development">
+        <script>const isDebug = true;</script>
+        <script src="~/developer/js/App/web.development.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script>const isDebug = false;</script>
+        <script src="~/developer/js/App/web.production.js" asp-append-version="true"></script>
+    </environment>
+    <script src="~/developer/js/App/auth-helper.js" asp-append-version="true"></script>
+    <script src="~/developer/js/App/jwt-decode.min.js" asp-append-version="true"></script>
+    <script src="~/developer/js/App/app.js" asp-append-version="true"></script>
+    <script src="~/developer/js/App/site.js" asp-append-version="true"></script>
+    <!-- default settings for datatable -->
+    @if (requestCultureFeature != "ar")
+    {
+        <link rel="stylesheet" href="~/developer/css/developer.css" asp-append-version="true" />
+        <script src="~/developer/js/App/default-datatable.js" asp-append-version="true"></script>
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/developer/css/developer-rtl.css" asp-append-version="true" />
+        <script src="~/developer/js/App/default-datatable-ar.js" asp-append-version="true"></script>
+    }
+    <script src="~/developer/js/App/default-datatable-extra.js" asp-append-version="true"></script>
+   @* <!-- signalR connection-->
+    <script src="/developer/js/app/signalr.js" asp-append-version="true"></script>
+    <script src="~/developer/js/app/signalr-client.js" asp-append-version="true"></script>*@
+
+    <link rel="stylesheet" href="/assets/vendor/css/dataTables.bootstrap5.css" />
+    <link rel="stylesheet" href="/assets/vendor/css/responsive.bootstrap5.min.css" />
+    <div class="toast-container" style="z-index:1000; position: absolute;"></div>
+    @{
+        await Html.RenderPartialAsync("_ResoursesModalPartial"); 
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(function () {  setInterval(showDateTime, 1000); }); 
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+</body>
+</html>

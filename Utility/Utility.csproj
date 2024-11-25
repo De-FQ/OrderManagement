@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ResponseMapper\APIResponseModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup> 
+    <PackageReference Include="Libwebp.Net" Version="0.9.1" /> 
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+    <PackageReference Include="NLog" Version="5.1.4" />
+    <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="22.2.0" />
+
+    <PackageReference Include="Razor.Templating.Core" Version="1.9.0" />
+    <PackageReference Include="jsreport.AspNetCore" Version="3.8.0" />
+    <PackageReference Include="jsreport.Binary" Version="3.11.0" />
+    <PackageReference Include="jsreport.Local" Version="3.8.1" />
+    <PackageReference Include="jsreport.Binary.Linux" Version="3.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Frontend\Login\" />
+  </ItemGroup>
+
+</Project>

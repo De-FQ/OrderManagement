@@ -1,0 +1,41 @@
+﻿.loader-container {
+    display: none;
+}
+
+.loader-container {
+    color: #ff00cf;
+}
+
+    .loader-container.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 999999999999;
+        background-color: #ffffffb5;
+        opacity: 1;
+    }
+
+.loader {
+    margin: 0;
+    height: auto;
+    width: 20%;
+    text-align: center;
+    padding: 0 1em;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+}
+    /*
+  Set the color of the icon
+*/
+    .loader svg path,
+    .loader svg rect {
+        fill: #ff00cf;
+         
+    }

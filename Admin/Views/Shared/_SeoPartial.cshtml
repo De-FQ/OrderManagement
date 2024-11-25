@@ -1,0 +1,103 @@
+﻿<section class="card mb-3 ">
+    <header class="card-header d-flex justify-content-between align-items-center p-3 ">
+        <h2 class="card-title ">@SharedHtmlLocalizer["seo_details"]</h2>
+        <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+        </div>
+    </header>
+    <div class="card-body ">
+        <div class="row g-3">
+            <div class="col-lg-6">
+                <input type="hidden" id="hdSeoId" />
+                <label for="seoTitle" class="form-label">@SharedHtmlLocalizer["seo_title_en"]<span class="text-danger">*</span></label>
+                <input type="text" maxlength="60" dir="ltr" class="form-control hasMaxLength" name="seoTitle" id="seoTitle" aria-describedby="@SharedHtmlLocalizer["seo_title_en"]" value="">
+                <div class="row hasMaxLengthContainer">
+                    <div class="col text-start"><small class="form-text text-muted">@SharedHtmlLocalizer["maximum_characters_allowed_60"]</small> </div>
+                    <div class="col text-end">
+                        <span class="current-count">0</span> / <span class="maximum-count">60</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6">
+                <label for="seoTitleAr" class="form-label">@SharedHtmlLocalizer["seo_title_ar"]<span class="text-danger">*</span></label>
+                <input type="text" maxlength="60" dir="rtl" class="form-control hasMaxLength" name="seoTitleAr" id="seoTitleAr" aria-describedby="@SharedHtmlLocalizer["seo_title_ar"]" value="">
+                <div class="row hasMaxLengthContainer">
+                    <div class="col text-start"><small class="form-text text-muted">@SharedHtmlLocalizer["maximum_characters_allowed_60"]</small> </div>
+                    <div class="col text-end">
+                        <span class="current-count">0</span> / <span class="maximum-count">60</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6">
+                <label for="seoDescription" class="form-label ">@SharedHtmlLocalizer["seo_description_en"]<span class=" text-danger">*</span></label>
+                <textarea dir="ltr" maxlength="150" class="form-control hasMaxLength " name="seoDescription" id="seoDescription" aria-describedby="SEO Description (En)" rows="3"></textarea>
+                <div class="row hasMaxLengthContainer">
+                    <div class="col text-start"><small class="form-text text-muted">@SharedHtmlLocalizer["maximum_characters_allowed_150"]</small> </div>
+                    <div class="col text-end">
+                        <span class="current-count">0</span> / <span class="maximum-count">150</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6">
+                <label for="seoDescriptionAr" class="form-label ">@SharedHtmlLocalizer["seo_description_ar"]<span class=" text-danger">*</span></label>
+                <textarea dir="rtl" maxlength="150" class="form-control hasMaxLength " name="seoDescriptionAr" id="seoDescriptionAr" aria-describedby="@SharedHtmlLocalizer["seo_description_ar"]" rows="3"></textarea>
+
+                <div class="row hasMaxLengthContainer">
+                    <div class="col text-start"><small class="form-text text-muted">@SharedHtmlLocalizer["maximum_characters_allowed_150"]</small> </div>
+                    <div class="col text-end">
+                        <span class="current-count">0</span> / <span class="maximum-count">150</span>
+                    </div>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6">
+                <label for="seoKeywords" class="form-label ">@SharedHtmlLocalizer["seo_keywords_en"]<span class=" text-danger">*</span></label>
+                <textarea dir="ltr" maxlength="150" class="form-control hasMaxLength " name="seoKeywords" id="seoKeywords" aria-describedby="@SharedHtmlLocalizer["seo_keywords"]" rows="3"></textarea>
+                <div class="row hasMaxLengthContainer">
+                    <div class="col text-start"><small class="form-text text-muted">@SharedHtmlLocalizer["maximum_characters_allowed_150"]</small> </div>
+                    <div class="col text-end">
+                        <span class="current-count">0</span> / <span class="maximum-count">150</span>
+                    </div>
+                </div>
+                <small class="form-text text-muted">Comma seperated keywords that are related to your content</small>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6">
+                <label for="seoKeywordsAr" class="form-label ">@SharedHtmlLocalizer["seo_keywords_ar"]<span class=" text-danger">*</span></label>
+                <textarea dir="rtl" maxlength="150" class="form-control hasMaxLength " name="seoKeywordsAr" id="seoKeywordsAr" aria-describedby="@SharedHtmlLocalizer["seo_keywords_ar"]" rows="3"></textarea>
+                <div class="row hasMaxLengthContainer">
+                    <div class="col text-start"><small class="form-text text-muted">@SharedHtmlLocalizer["maximum_characters_allowed_150"]</small> </div>
+                    <div class="col text-end">
+                        <span class="current-count">0</span> / <span class="maximum-count">150</span>
+                    </div>
+                </div>
+                <small class="form-text text-muted">Comma seperated keywords that are related to your content</small>
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-10 mb-3">
+                        <label for="upload-image-SEOImage" class="form-label">@SharedHtmlLocalizer["seo_image"]<span class=" text-danger">*</span></label>
+                        <div class="input-group has-validation">
+                            <input class="form-control enable-compression" type="file" name="uploadImageSEOImage" id="uploadImageSEOImage">
+                            <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_1200x630_px_in_png_or_jpg_format"]
+                            </div>
+                        </div>
+                        <small class="form-text text-muted">
+                            @SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_1200x630_px_in_png_or_jpg_format"]
+                        </small>
+                    </div>
+                    <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                        <img src="holder.js/1200x630?auto=yes&size=150"
+                             class="img-fluid preview-image previewImageSEOImage" id="previewImageSEOImage">
+                        <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["preview"]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

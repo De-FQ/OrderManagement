@@ -1,0 +1,82 @@
+﻿.btn-primarys {
+    background-color: #ff69b400;
+    border-color: #ff69b4;
+    color: wheat;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 46px;
+    border-style: solid;
+    border-width: 4px;
+}
+
+    .btn-primarys:hover {
+        color: #fff;
+        background-color: #ff69b430;
+        border-color: #ff69b4;
+    }
+
+.checkbtn {
+    margin-top: 6px;
+}
+
+.checkbtns {
+    color: wheat;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+    .checkbtns a {
+        color: wheat;
+    }
+
+.checkbtn.btn.btn-primary {
+    width: 330px;
+    height: 330px;
+    /* Existing styles */
+    padding: 10px 20px; /* Adjust padding if needed */
+    display: flex; /* Enable flexbox for alignment */
+    align-items: center; /* Vertically center content */
+}
+
+    .checkbtn.btn.btn-primary img {
+        margin-right: 10px; /* Spacing between image and text */
+        width: 280px;
+        height: auto;
+    }
+    .checkbtn.btn.btn-primary.cone img {
+        margin-right: 10px; /* Spacing between image and text */
+        width: 170px;
+        height: auto;
+        margin-left: 58px;
+    }
+
+.checkbtns.btn.btn-primary {
+    /* Existing styles */
+    padding: 10px 20px; /* Adjust padding if needed */
+    display: flex; /* Enable flexbox for alignment */
+    align-items: center; /* Vertically center content */
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .button-content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.section-name {
+    margin-top: 5px; /* Adjust as needed */
+    font-size: 30px;
+}
+
+.section-cone {
+    margin-left: 45px;
+    margin-top: 5px;
+    font-size: 30px;
+}

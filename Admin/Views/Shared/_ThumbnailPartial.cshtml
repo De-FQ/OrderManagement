@@ -1,0 +1,24 @@
+﻿@model string
+<div class="col-12">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-10 mb-3">
+                    <label for="uploadimageThumbnailImage" class="form-label">@SharedHtmlLocalizer["thumbnail_image"]<span class="text-danger">*</span></label>
+                    <div class="input-group has-validation">
+                        <input class="form-control enable-compression" type="file" name="uploadimageThumbnailImage" id="uploadimageThumbnailImage">
+                        <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <small class="form-text text-muted">
+                        @(string.Format("For consistency purposes, please upload all image at the size {0} px in .png or .jpg format", string.IsNullOrEmpty(Model) ? "420x420" : Model))
+                    </small>
+                </div>
+                <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                    <img src="holder.js/420x420?auto=yes&size=50" class="img-fluid preview-image previewimageThumbnailImage" id="previewimageThumbnailImage">
+                    <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["preview"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

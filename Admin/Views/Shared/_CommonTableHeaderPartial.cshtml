@@ -1,0 +1,23 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel 
+
+<header class="card-header d-flex justify-content-between align-items-center p-3">
+    <script>
+        allowReOrder = @Model.AllowDisplayOrder.ToString().ToLower();
+        const allowActive = @Model.AllowActive.ToString().ToLower();
+        const allowEdit = @Model.AllowEdit.ToString().ToLower();
+        const allowDelete = @Model.AllowDelete.ToString().ToLower();
+    </script>
+    <h2 class="card-title ">@Model.Title</h2> 
+    <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+        <input type="hidden" id="allowDisplayOrder" value="@Model.GetAllowDisplayOrder()" />
+        <input type="hidden" id="allowActive" value="@Model.GetAllowActive()" />
+        <input type="hidden" id="allowEdit" value="@Model.GetAllowEdit()" />
+        <input type="hidden" id="allowDelete" value="@Model.GetAllowDelete()" />
+        @if (Model.AllowAdd && Model.AddEditPath != null)
+        {
+            <button class="btn btn-primary btn-sm " onclick="window.location = '@Model.AddEditPath';">
+                <i class="fas fa-plus me-1"></i> @SharedHtmlLocalizer["add"]
+            </button>
+        }  
+    </div>
+</header>

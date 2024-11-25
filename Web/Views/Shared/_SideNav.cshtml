@@ -1,0 +1,38 @@
+﻿
+<div class="sidebar" id="sidebar">
+    <h1> Ice Creame Parlor</h1>
+    <ul>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#iceCreamMenu" class="dropdown-arrow collapsed">Ice Cream</a>
+            <ul id="iceCreamMenu" class="collapse">
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#takeAwayMenu" class="dropdown-arrow collapsed">Take Away</a>
+                    <ul id="takeAwayMenu" class="collapse">
+                        <li><a href="@Url.Action("Litre", "IceCream")">1 Litre Pack</a></li>
+                        <li><a href="@Url.Action("HalfLitre", "IceCream")">1/2 Litre Pack</a></li>
+                        <li><a href="@Url.Action("Cup", "IceCream")">Cup</a></li>
+                        <li><a href="@Url.Action("Cone", "IceCream")">Cone</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#onTableMenu" class="dropdown-arrow collapsed">On Table</a>
+                    <ul id="onTableMenu" class="collapse">
+                        <li><a href="@Url.Action("Cup", "IceCream")">Cup</a></li>
+                        <li><a href="@Url.Action("Cone", "IceCream")">Cone</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">Faluda</a></li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#fastFoodMenu" class="dropdown-arrow collapsed">Fast Food</a>
+            <ul id="fastFoodMenu" class="collapse">
+                <li><a href="#">Burgers</a></li>
+                <li><a href="#">Pizzas</a></li>
+                <li><a href="#">Fries</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Inventory</a></li>
+        <li><a href="@Url.Action("SalesReportPage", "SalesReport")">Sales Report</a></li>
+    </ul>
+</div>

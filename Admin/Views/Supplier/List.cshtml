@@ -1,0 +1,68 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["Suppliers"].Value;
+    Model.Title = title;
+    Model.AddEditPath = "/Supplier/AddEdit";
+}
+
+@await Html.PartialAsync("_PageHeaderPartial", title)
+
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", Model)
+
+    <div class="card-body">
+        <table class="table align-middle mobile-optimised" id="datatable-default-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo"]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Active"]</th>
+                    <th data-priority="3" class="text-left">@SharedHtmlLocalizer["Name"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["Address"]</th>
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["Contact"]</th>
+                    <th data-priority="2" class="">@SharedHtmlLocalizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="modal fade" id="update_supplierModal" tabindex="-1" aria-labelledby="update_supplierModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_supplierModalLabel">@SharedHtmlLocalizer["Edit Supplier"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" name="Guid" value="" />
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">@SharedHtmlLocalizer["Name"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="name" id="name" aria-describedby="Name" placeholder="Name" required>
+                            <div class="invalid-feedback">Please enter supplier name</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="col-form-label">@SharedHtmlLocalizer["Address"]:</label>
+                            <textarea dir="ltr" class="form-control" name="address" id="address" aria-describedby="Address" placeholder="Address" required></textarea>
+                            <div class="invalid-feedback">Please enter address</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact" class="col-form-label">@SharedHtmlLocalizer["Contact"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="contact" id="contact" aria-describedby="Contact" placeholder="Contact" required>
+                            <div class="invalid-feedback">Please enter contact</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["Close"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/developer/js/InventoryManagement/Supplier/Supplier_Datatable.js" asp-append-version="true"></script>

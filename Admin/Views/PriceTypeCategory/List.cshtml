@@ -1,0 +1,92 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["Price Type Categories"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/PriceTypeCategory/AddEdit";
+}
+@await Html.PartialAsync("_PageHeaderPartial", title)
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-lg-4 mb-3">
+                <label for="childCategoryFilter" class="form-label">@SharedHtmlLocalizer["Child Category"]<span class="text-danger">*</span> </label>
+                <select class="form-select" name="childCategoryFilter" id="childCategoryFilter" dir="ltr" aria-describedby="ChildCategory">
+                </select>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+        <table class="table align-middle mobile-optimised" id="datatable-default-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["SNo."]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["Active"]</th>
+                    <th data-priority="3" class="text-left">@SharedHtmlLocalizer["Name"]</th>
+                    <th data-priority="4" class="text-start">@SharedHtmlLocalizer["Actions"]</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</section>
+<div class="modal fade" id="update_priceTypeCategoryModal" tabindex="-1" aria-labelledby="update_priceTypeCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update_priceTypeCategoryModalLabel">@SharedHtmlLocalizer["Edit"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    <input type="hidden" id="guid" value="" />
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="priceTypeCategoryName" class="col-form-label">@SharedHtmlLocalizer["Name"]:</label>
+                            <input type="text" dir="ltr" class="form-control" name="priceTypeCategoryName" id="priceTypeCategoryName" aria-describedby="PriceTypeCategory Name" placeholder="PriceTypeCategory Name" value="" required>
+                            <div class="invalid-feedback">Please enter price type category name</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="childCategory" class="form-label">@SharedHtmlLocalizer["Child Category"]:</label>
+                            <select class="form-select" name="childCategory" id="childCategory" dir="ltr" aria-describedby="ChildCategory">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["Close"]</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/General/PriceTypeCategory/PriceTypeCategory_Datatable.js" asp-append-version="true"></script>

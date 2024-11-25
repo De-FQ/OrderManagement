@@ -1,0 +1,89 @@
+﻿@model List<Data.UserManagement.UserPermission>
+@*@{
+    var authorized = false;
+    if (Model != null)
+    {
+        authorized = true;
+    }
+}
+<input type="hidden" id="authorized" value="@(authorized?1:0)" />*@
+@if (Model != null)
+{
+
+    <aside id="sidebar-left" class="sidebar-left">
+        <div class="sidebar-header">
+            <div class="sidebar-title">
+                @*Navigation*@
+            </div>
+            <div class="sidebar-toggle d-none d-md-block" data-fire-event="sidebar-left-toggle" data-toggle-class="sidebar-left-collapsed" data-target="html">
+                <i class="fa-solid fa-arrow-left" aria-label="Toggle sidebar"></i>
+            </div>
+        </div>
+        <div class="nano">
+            <div class="nano-content">
+                <nav id="menu" class="nav-main pb-5" role="navigation">
+                    <ul class="nav nav-main pb-5">
+                        @foreach (var menu in Model)
+                        {
+                            if (menu.ChildPermissions.Count > 0) //level 1 with its children (dropdown)
+                            {
+                                <li class="nav-parent" id="@menu.Title">
+                                    <a class="nav-link" href="@menu.NavigationUrl">
+                                        <i class="@menu.Icon"></i>
+                                        <span>@menu.Title</span>
+                                        <span class="badge bg-glowing ms-auto" style="@(menu.BadgeCount>0?"display:block;":"display:none;")">@menu.BadgeCount</span>
+                                    </a>
+
+                                    <ul class="nav nav-children">
+                                        @foreach (var child in menu.ChildPermissions)
+                                        {
+                                            <li>
+                                                <a class="nav-link" href="@child.NavigationUrl">
+                                                    <span>@child.Title</span>
+                                                    <span class="badge bg-glowing ms-auto" style="@(child.BadgeCount>0?"display:block;":"display:none;")">@child.BadgeCount</span>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li id="@menu.Title">
+                                    @if (!string.IsNullOrEmpty(menu.NavigationUrl))
+                                    {
+                                        <a class="nav-link" href="@menu.NavigationUrl">
+                                            <i class="@menu.Icon"></i>
+                                            <span>@menu.Title</span>
+                                            <span class="badge bg-glowing ms-auto" style="@(menu.BadgeCount>0?"display:block;":"display:none;")">@menu.BadgeCount</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="nav-link" href="#">
+                                            <i class="@menu.Icon"></i>
+                                            <span>@menu.Title</span>
+                                            <span class="badge bg-glowing ms-auto" style="@(menu.BadgeCount>0?"display:block;":"display:none;")">@menu.BadgeCount</span>
+                                        </a>
+                                    }
+                                </li>
+                            }
+                        }
+                    </ul>
+                    <hr class="separator" />
+                </nav>
+            </div>
+        </div>
+    </aside>
+}
+<script>
+    // Maintain Scroll Position
+    if (typeof localStorage !== 'undefined') {
+        if (localStorage.getItem('sidebar-left-position') !== null) {
+            var initialPosition = localStorage.getItem('sidebar-left-position'),
+                sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+            sidebarLeft.scrollTop = initialPosition;
+        }
+    }
+    $(function () { beep(); });
+</script> 

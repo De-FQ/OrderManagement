@@ -1,0 +1,41 @@
+﻿.toast {
+    background-color: white;
+    z-index: 9999;
+}
+.form-control-color {
+    height:calc(1.5em + 0.75rem + calc(var(--bs-border-width)*2)) !important;
+}
+
+/*.select2-container--bootstrap {
+    width: auto !important;
+}
+
+.select2-container--bootstrap .select2-selection--single {
+    line-height: 1.85;
+    min-height: inherit;
+    height: inherit;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+.select2-container--bootstrap .select2-selection {
+    border-radius: 0px;
+}
+
+.select2-container--bootstrap .select2-selection--multiple {
+    min-height: 39.1px;
+}
+
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
+    border-radius: 0px;
+    margin: 8px 0 0 8px;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    text-align: center;
+}
+
+table {
+    font-size: .9rem;
+}
+*/

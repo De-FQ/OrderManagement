@@ -1,0 +1,154 @@
+﻿<div class="col-12 card media-gallery-section disabled" id="dv-media-gallery" data-bs-toggle="tooltip" data-bs-title="@SharedHtmlLocalizer["to_add_media_gallery_please_first_save_the_current_item"]">
+    <div class="row">
+        <div class="col-12">
+            <section class="card mb-3 ">
+                <header class="card-header d-flex justify-content-between align-items-center p-3 ">
+                    <h2 class="card-title ">@SharedHtmlLocalizer["media_gallery"]</h2>
+                    <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                        <button type="button" class="btn btn-primary show-upload-popup btn-sm "><i class="fas fa-plus me-1"></i>@SharedHtmlLocalizer["add_media_item"]</button>
+                    </div>
+                </header>
+                <div class="card-body bg-white">
+                    <table class="table align-middle mobile-optimised datatable-default-" id="datatable-default-">
+                        <thead>
+                            <tr>
+                                <th data-priority="0" class="text-start">@SharedHtmlLocalizer["s_no"]</th>
+                                <th data-priority="1" class="text-start">@SharedHtmlLocalizer["status"]</th>
+                                <th data-priority="2" class="text-start">@SharedHtmlLocalizer["image"]</th>
+                                <th data-priority="3" class="text-start">@SharedHtmlLocalizer["type"]</th>
+                                <th data-priority="5" class="text-start">@SharedHtmlLocalizer["upload_date"]</th>
+                                <th data-priority="6" class="text-end">@SharedHtmlLocalizer["actions"]</th>
+                            </tr>
+                        </thead>
+                        <tbody class="" id="">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="upload-media-items-popup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="upload-media-items-popupLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title m-0" id="upload-media-items-popupLabel">@SharedHtmlLocalizer["upload"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">@SharedHtmlLocalizer["media_type"]</label>
+                        <div class="form-check">
+                            <input class="form-check-input" data-radio-conditional-display="MediaTypeImage" type="radio" name="galleryMediaType" id="MediaType-Image" data-text="@MediaFileType.Image" value="@((Int32)MediaFileType.Image)" checked>
+                            <label class="form-check-label" for="MediaType-Image">
+                                @SharedHtmlLocalizer["image"]
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" data-radio-conditional-display="MediaTypeVideo" type="radio" name="galleryMediaType" id="MediaType-Video" data-text="@MediaFileType.Video" value="@((Int32)MediaFileType.Video)">
+                            <label class="form-check-label" for="MediaType-Video">
+                                @SharedHtmlLocalizer["video"]
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12" data-content-display="MediaTypeImage">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-10 mb-3">
+                                        <label for="upload-image-MediaImage" class="form-label">@SharedHtmlLocalizer["media_image"]<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <input class="form-control enable-compression uploadimageMediaImage" type="file" name="uploadimageMediaImage" id="uploadimageMediaImage">
+                                            <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                                        </div>
+                                        <small class="form-text text-muted">
+                                            @SharedHtmlLocalizer["for_consistency_purposes_please_upload_all_image_at_the_size_1920x1080_px_in_png_or_jpg_format"]
+                                        </small>
+                                        <div class="invalid-feedback">
+                                            @SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_1920x1080_px_in_png_or_jpg_format"]
+                                        </div>
+                                    </div>
+                                    <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%221920%22%20height%3D%221080%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201920%201080%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18b65be89a3%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A200pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18b65be89a3%22%3E%3Crect%20width%3D%221920%22%20height%3D%221080%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22292.6328125%22%20y%3D%22629.4%22%3E1920x1080%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" 
+                                        class="img-fluid preview-image preview-image-MediaImage" id="preview-image-MediaImage">
+                                        <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["preview"]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" data-content-display="MediaTypeVideo">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label for="upload-image-MediaVideo" class="form-label">@SharedHtmlLocalizer["video"]<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <input class="form-control" type="file"  accept="video/mp4"  name="uploadimageMediaVideo" id="uploadimageMediaVideo">
+                                            <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                                        </div>
+                                        <small class="form-text text-muted">@SharedHtmlLocalizer["upload_video_in_1920x1080_resolution_keep_the_video_less_than_20_seconds"]</small>
+                                        <div class="invalid-feedback">
+                                            @SharedHtmlLocalizer["acceptable_file_format_is_mp4_maximum_upload_size_is_5mb_per_file"]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-10 mb-3">
+                                        <label for="upload-image-MediaVideoPoster" class="form-label">@SharedHtmlLocalizer["video_poster_image"]<span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <input class="form-control enable-compression uploadimageMediaVideoPoster" type="file" name="uploadimageMediaVideoPoster" id="uploadimageMediaVideoPoster">
+                                            <span class="input-group-text"><a href="javascript:;" class="text-decoration-none text-body small" target="_blank">@SharedHtmlLocalizer["view_file"]</a></span>
+                                        </div>
+                                        <small class="form-text text-muted">
+                                            @SharedHtmlLocalizer["for_consistency_purposes_please_upload_all_image_at_the_size_1920x1080_px_in_png_or_jpg_format"]
+                                        </small>
+                                        <div class="invalid-feedback">
+                                            @SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_1920x1080_px_in_png_or_jpg_format"]
+                                        </div>
+                                    </div>
+                                    <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%221920%22%20height%3D%221080%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201920%201080%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18b65be89a3%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A200pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18b65be89a3%22%3E%3Crect%20width%3D%221920%22%20height%3D%221080%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22292.6328125%22%20y%3D%22629.4%22%3E1920x1080%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" 
+                                        class="img-fluid preview-image preview-image-MediaVideoPoster" id="preview-image-MediaVideoPoster">
+                                        <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["preview"]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+                <button type="button" class="btn btn-success upload-btn">@SharedHtmlLocalizer["add"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="toast-container" style="z-index:1000; position: absolute;"></div>*@
+<!-- Start: View Media Gallery Item -->
+<div class="modal fade" id="view-media-gallery-item-modal" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabindex="-1" aria-labelledby="view-media-gallery-item-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title m-0" id="view-media-gallery-item-modalLabel">@SharedHtmlLocalizer["preview"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-12 modal-preview-container text-center">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: View Media Gallery Item -->
+ 

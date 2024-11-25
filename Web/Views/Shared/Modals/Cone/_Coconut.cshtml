@@ -1,0 +1,44 @@
+﻿<!-- coconutModal.cshtml -->
+<div class="modal fade" id="coconutModal" tabindex="-1" aria-labelledby="coconutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 900px;">
+        <div class="modal-content custom-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="coconutModalLabel">Coconut Ice Cream</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="big-tub-container" style="position: relative;">
+                    <img src="~/assets/img/cone/large/coconut.png" alt="Coconut Ice Cream" class="img-fluid big-tub" />
+                    <div class="flavour-label modalheadingstyle">
+                        Coconut<br> Ice Cream
+                    </div>
+                </div>
+                <div class="small-tub-container">
+                    <img src="~/assets/img/cone/coconut.png" alt="Coconut Ice Cream" class="img-fluid small-tub" />
+                    <img src="~/assets/img/cone/double/coconut.png" alt="Coconut Ice Cream" class="img-fluid small-tubs" />
+                </div>
+                <div class="scoop-section">
+                    <div class="scoop-item">
+                        <p>Single Scoop</p>
+                        <input type="number" id="singleCoconutScoop" class="form-control small-input" value="0" min="0" onchange="calculateCoconutPrice()" />
+                        <p>Single Scoop Price:<br> <span id="singleCoconutScoopPrice">00</span> Rs.</p>
+                    </div>
+                    <div class="scoop-items">
+                        <p>Double Scoop</p>
+                        <input type="number" id="doubleCoconutScoop" class="form-control small-input" value="0" min="0" onchange="calculateCoconutPrice()" />
+                        <p>Double Scoop Price:<br> <span id="doubleCoconutScoopPrice">00</span> Rs.</p>
+                    </div>
+                </div>
+                <div class="price-section">
+                    <h2>Total Price: <span id="totalCoconutPrice">00</span> Rs.</h2>
+                    <h2>Total Quantity: <span id="totalCoconutQuantity">0</span></h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="addToCoconutOrder()">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model Utility.Models.Base.UserModel;
+@*@using Microsoft.AspNetCore.Localization
+@{
+   // var requestCultureFeature = System.Globalization.CultureInfo.CurrentCulture.Name;
+   // var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    //var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString}";
+}*@
+<header class="header">
+    <div class="logo-container">
+        <a href="/" class="logo">
+            <img src="/assets/img/logo2.png" height="45" alt="logo" />
+        </a>
+        <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+            <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+        </div>
+    </div>
+    <div class="header-right"> 
+        <span class="separator"></span>
+        <div id="userbox" class="userbox">
+            <span style="display:none">Total Views:</span><span style="display:none" id="totalViewsCounter">0</span>
+            <span style="display:none">Total Users:</span><span style="display:none" id="totalUsersCounter">0</span>
+            <a href="#" data-bs-toggle="dropdown">
+                <figure class="profile-picture">
+                    <img src="@Model.ImageUrl" alt="@Model.EmailAddress" class="rounded-circle" data-lock-picture="@Model.ImageUrl" />
+                </figure>
+                <div class="profile-info" data-lock-name="@Model.EmailAddress" data-lock-email="@Model.EmailAddress">
+                    <span class="name">@Model.EmailAddress</span>
+                    <span class="role">@Model.RoleName</span>
+                </div>
+                <i class="fa custom-caret"></i>
+            </a>
+            <div class="dropdown-menu">
+                <ul class="list-unstyled mb-2">
+                    <li class="divider"></li>
+                    <li>
+                        <a role="menuitem" class="logout-link" tabindex="-1" href="/Account/SignOut" id="a-signout"><i class="bx bx-power-off"></i>@SharedHtmlLocalizer["logout"]</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    $(document).ready(function () {
+        var dashboardUrl = $("#Dashboard").find("a").attr("href");
+        $("#a-main-logo").attr("href", dashboardUrl);
+        $("#a-breadcrumbs-main-logo").attr("href", dashboardUrl);
+    });
+</script> 

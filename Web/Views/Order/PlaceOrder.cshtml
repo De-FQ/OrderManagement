@@ -1,0 +1,184 @@
+﻿@model Utility.Models.Frontend.GeneralDto.OrderDto
+
+
+
+<div class="container overflow-hidden">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="col-12 text-center mb-5 section-title" data-aos="slide-up" data-aos-easing="ease-in-out" data-aos-duration="1000">
+                <h3 class="text-uppercase">@SharedHtmlLocalizer["place_order"]</h3>
+            </div>
+        </div>
+        <div class="col-12 bg-white" data-aos="slide-up" data-aos-easing="ease-in-out" data-aos-duration="1000">
+            <form method="post" id="orderForm" name="orderForm" enctype="multipart/form-data" >
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h4>@SharedHtmlLocalizer["order_information"]</h4>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="CustomerName" class="form-label">@SharedHtmlLocalizer["customer_name"]<span class="ms-1 text-danger">*</span></label>
+                                <input type="text" class="form-control" name="CustomerName" id="CustomerName" aria-describedby="Customer Name" placeholder="" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12">
+                                <label for="PaymentMethod" class="form-label">@SharedHtmlLocalizer["payment_method"]<span class="ms-1 text-danger">*</span></label>
+                                <select class="form-select" name="PaymentMethod" id="PaymentMethod" aria-describedby="Payment Method">
+                                    <option value="Cash">@SharedHtmlLocalizer["cash"]</option>
+                                    <option value="CreditCard">@SharedHtmlLocalizer["credit_card"]</option>
+                                    <option value="DebitCard">@SharedHtmlLocalizer["debit_card"]</option>
+                                    <option value="Other">@SharedHtmlLocalizer["other"]</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="AmountReceived" class="form-label">@SharedHtmlLocalizer["amount_received"]<span class="ms-1 text-danger">*</span></label>
+                                <input type="number" class="form-control" name="AmountReceived" id="AmountReceived" aria-describedby="Amount Received" placeholder="" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="TotalAmount" class="form-label">@SharedHtmlLocalizer["total_amount"]<span class="ms-1 text-danger">*</span></label>
+                                <input type="number" class="form-control" name="TotalAmount" id="TotalAmount" aria-describedby="Total Amount" placeholder="" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="ChangeToReturn" class="form-label">@SharedHtmlLocalizer["change_to_return"]</label>
+                                <input type="number" class="form-control" name="ChangeToReturn" id="ChangeToReturn" aria-describedby="Change To Return" placeholder="" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="OrderDate" class="form-label">@SharedHtmlLocalizer["order_date"]<span class="ms-1 text-danger">*</span></label>
+                                <input type="date" class="form-control" name="OrderDate" id="OrderDate" aria-describedby="Order Date" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <h4>@SharedHtmlLocalizer["order_items"]</h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="row g-3" id="orderItemsContainer">
+                            <!-- Repeat this block for each order item -->
+                            <div class="col-12 col-lg-4">
+                                <label for="ProductPriceId" class="form-label">@SharedHtmlLocalizer["product"]<span class="ms-1 text-danger">*</span></label>
+                                <select class="form-select" name="ProductPriceId" id="ProductPriceId">
+                                    <!-- Options for products -->
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="Quantity" class="form-label">@SharedHtmlLocalizer["quantity"]<span class="ms-1 text-danger">*</span></label>
+                                <input type="number" class="form-control" name="Quantity" id="Quantity" aria-describedby="Quantity" placeholder="" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <label for="Total" class="form-label">@SharedHtmlLocalizer["total"]<span class="ms-1 text-danger">*</span></label>
+                                <input type="number" class="form-control" name="Total" id="Total" aria-describedby="Total" placeholder="" value="">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button type="button" id="addOrderItem" class="btn btn-primary">@SharedHtmlLocalizer["add_item"]</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-success">@SharedHtmlLocalizer["place_order"]</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        setupOrderForm();
+    });
+    
+    function setupOrderForm() {
+        alert("4");
+        // Form validation
+        $("#orderForm").validate({
+            ignore: [],
+            errorClass: 'is-invalid',
+            validClass: 'is-valid',
+            rules: {
+                CustomerName: { required: true },
+                PaymentMethod: { required: true },
+                AmountReceived: { required: true, number: true },
+                TotalAmount: { required: true, number: true },
+                OrderDate: { required: true, date: true },
+                "ProductPriceId[]": { required: true },
+                "Quantity[]": { required: true, number: true, min: 1 },
+                "Total[]": { required: true, number: true }
+            },
+            messages: {
+                CustomerName: "@SharedHtmlLocalizer["please_enter_your_name"]",
+                PaymentMethod: "@SharedHtmlLocalizer["please_select_payment_method"]",
+                AmountReceived: {
+                    required: "@SharedHtmlLocalizer["please_enter_amount_received"]",
+                    number: "@SharedHtmlLocalizer["please_enter_valid_amount"]"
+                },
+                TotalAmount: {
+                    required: "@SharedHtmlLocalizer["please_enter_total_amount"]",
+                    number: "@SharedHtmlLocalizer["please_enter_valid_amount"]"
+                },
+                OrderDate: "@SharedHtmlLocalizer["please_select_order_date"]",
+                "ProductPriceId[]": "@SharedHtmlLocalizer["please_select_product"]",
+                "Quantity[]": {
+                    required: "@SharedHtmlLocalizer["please_enter_quantity"]",
+                    number: "@SharedHtmlLocalizer["please_enter_valid_quantity"]",
+                    min: "@SharedHtmlLocalizer["quantity_must_be_at_least_1"]"
+                },
+                "Total[]": {
+                    required: "@SharedHtmlLocalizer["please_enter_total"]",
+                    number: "@SharedHtmlLocalizer["please_enter_valid_amount"]"
+                }
+            },
+            errorPlacement: function ($error, $element) {
+                if ($element.siblings(".invalid-feedback").length) {
+                    $element.siblings(".invalid-feedback").html($error);
+                }
+            },
+            submitHandler: function (form, event) {
+                event.preventDefault();
+                saveOrderData();
+            }
+        });
+
+        // Add new order item
+        $("#addOrderItem").click(function () {
+            addOrderItemRow();
+        });
+    }
+
+    // Add a new order item row
+    function addOrderItemRow() {
+        let newItemHtml = `
+            <div class="row g-3 order-item-row">
+                <div class="col-12 col-lg-4">
+                    <label for="ProductPriceId" class="form-label">@SharedHtmlLocalizer["product"]<span class="ms-1 text-danger">*</span></label>
+                    <select class="form-select" name="ProductPriceId" aria-describedby="Product Price Id">
+                        <!-- Options for products -->
+                    </select>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <label for="Quantity" class="form-label">@SharedHtmlLocalizer["quantity"]<span class="ms-1 text-danger">*</span></label>
+                    <input type="number" class="form-control" name="Quantity" aria-describedby="Quantity" placeholder="" value="">
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <label for="Total" class="form-label">@SharedHtmlLocalizer["total"]<span class="ms-1 text-danger">*</span></label>
+                    <input type="number" class="form-control" name="Total" aria-describedby="Total" placeholder="" value="">
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>`;
+        $("#orderItemsContainer").append(newItemHtml);
+    }
+
+</script>

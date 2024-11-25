@@ -1,0 +1,13 @@
+﻿.image-card img {
+    width: 100%;
+    height: auto;
+}
+.image-cards img {
+    margin-left:45px;
+    width: 75%;
+    height: auto;
+}
+
+.cardspace{
+    margin-top:140px;
+}

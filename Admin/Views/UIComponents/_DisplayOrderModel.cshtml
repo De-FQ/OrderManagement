@@ -1,0 +1,37 @@
+﻿
+<!-- Modals -->
+<!-- Vertically centered scrollable modal id="sort_modal" -->
+<div class="modal fade" id="DisplayOrderModel" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sort_modalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="sort_modalLabel">@SharedHtmlLocalizer["display_order"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- ========== Start Simple Input Field ========== -->
+                @*<label for="" class="form-label">Display Order</label>*@
+                @* <input type="number" class="form-control form-control-lg rounded-4 border-secondary " name="displayordervalue" id="displayordervalue" aria-describedby="Display Order" placeholder="" value="" min="0">*@
+
+                <label for="" class="form-label">@SharedHtmlLocalizer["enter_display_order"]</label>
+                <input type="number" class="form-control  form-control-lg rounded-4 border-secondary " name="displayordervalue" id="displayordervalue" aria-describedby="Display Order" placeholder="" min="0">
+                <input type="hidden" class="form-control" name="displayapiname" id="displayapiname">
+                <input type="hidden" class="form-control" name="displayorderid" id="displayorderid">
+                <input type="hidden" class="form-control" name="displayorderguid" id="displayorderguid">
+                <!-- ========== End Simple Input Field ========== -->
+            </div>
+
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success save-btn">Save</button>*@
+
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+                <button type="button" class="btn btn-success save-btn" onclick="updateDisplayOrder()">@SharedHtmlLocalizer["update"]</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/developer/js/App/update-display-order.js" asp-append-version="true"></script>

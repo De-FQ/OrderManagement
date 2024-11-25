@@ -1,0 +1,763 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_us" xml:space="preserve">
+    <value>من نحن</value>
+  </data>
+  <data name="accredited_educational_qualification" xml:space="preserve">
+    <value>المؤهل العلمي المعتمد</value>
+  </data>
+  <data name="activities" xml:space="preserve">
+    <value>أنشطة</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="add_experience_details" xml:space="preserve">
+    <value>تفاصيل الخبرة</value>
+  </data>
+  <data name="add_more" xml:space="preserve">
+    <value>أضف المزيد</value>
+  </data>
+  <data name="add_new" xml:space="preserve">
+    <value>إضافة المزيد</value>
+  </data>
+  <data name="all_activities" xml:space="preserve">
+    <value>جميع الأنشطة</value>
+  </data>
+  <data name="all_attractions" xml:space="preserve">
+    <value>جميع الوجهات السياحية</value>
+  </data>
+  <data name="all_documents_uploaded_will_be_matched_to_the_information_provided_above" xml:space="preserve">
+    <value>كل المستندات المرفقة سوف تطابق مع المعلومات المقدمة أعاله.</value>
+  </data>
+  <data name="all_rights_reserved" xml:space="preserve">
+    <value>جميع الحقوق محفوظه</value>
+  </data>
+  <data name="all_uploaded_documents_will_undergo_verification_against_the_information_provided_in_your_application" xml:space="preserve">
+    <value>جميع الوثائق التي تم رفعها سيتم التحقق منها ومطابقتها مع المعلومات المقدمة في طلبك.</value>
+  </data>
+  <data name="application_form" xml:space="preserve">
+    <value>نموذج الطلب</value>
+  </data>
+  <data name="apply_here" xml:space="preserve">
+    <value>قدم هنا</value>
+  </data>
+  <data name="apply_now" xml:space="preserve">
+    <value>قدم الان</value>
+  </data>
+  <data name="arabic" xml:space="preserve">
+    <value>اللغة العربية</value>
+  </data>
+  <data name="attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="attested_education_certificate" xml:space="preserve">
+    <value>Attested Education Certificate</value>
+  </data>
+  <data name="attraction" xml:space="preserve">
+    <value>وجهة سياحية</value>
+  </data>
+  <data name="attractions" xml:space="preserve">
+    <value>وجهات سياحية</value>
+  </data>
+  <data name="authorised_signatory_document" xml:space="preserve">
+    <value>Authorised signatory document</value>
+  </data>
+  <data name="bachelors" xml:space="preserve">
+    <value>بكالوريوس</value>
+  </data>
+  <data name="back_to_album" xml:space="preserve">
+    <value>Back to Album</value>
+  </data>
+  <data name="basic_information" xml:space="preserve">
+    <value>المعلومات الشخصية</value>
+  </data>
+  <data name="below_secondary" xml:space="preserve">
+    <value>أقل من الثانوية</value>
+  </data>
+  <data name="careers" xml:space="preserve">
+    <value>الوظائف</value>
+  </data>
+  <data name="careers_detail" xml:space="preserve">
+    <value>Careers Detail</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
+  <data name="christianity" xml:space="preserve">
+    <value>مسيحي/مسيحية</value>
+  </data>
+  <data name="civil_id" xml:space="preserve">
+    <value>Civil ID</value>
+  </data>
+  <data name="civil_identification_copy" xml:space="preserve">
+    <value>Civil Identification Copy</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>يغلق</value>
+  </data>
+  <data name="coming_soon" xml:space="preserve">
+    <value>قريباً</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="comment_success" xml:space="preserve">
+    <value>شكرا لك على تقديم الطلب</value>
+  </data>
+  <data name="complaint_detail" xml:space="preserve">
+    <value>Complaint Detail</value>
+  </data>
+  <data name="contact_us" xml:space="preserve">
+    <value>تواصل معنا</value>
+  </data>
+  <data name="conversant" xml:space="preserve">
+    <value>مُلِم</value>
+  </data>
+  <data name="copyright" xml:space="preserve">
+    <value>حقوق الطبع والنشر</value>
+  </data>
+  <data name="country_of_nationality" xml:space="preserve">
+    <value>Country of Nationality</value>
+  </data>
+  <data name="currently_working" xml:space="preserve">
+    <value>أعمل حالياً؟</value>
+  </data>
+  <data name="date_of_birth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="divorced" xml:space="preserve">
+    <value>مطلق/مطلقة</value>
+  </data>
+  <data name="download_app" xml:space="preserve">
+    <value>حمل التطبيق</value>
+  </data>
+  <data name="do_you_have_experience" xml:space="preserve">
+    <value>هل لديك خبرة؟</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="email_address" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="end_date" xml:space="preserve">
+    <value>تاريخ الإنتهاء</value>
+  </data>
+  <data name="english" xml:space="preserve">
+    <value>اللغة الإنجليزية</value>
+  </data>
+  <data name="events" xml:space="preserve">
+    <value>فعاليات</value>
+  </data>
+  <data name="expected_joining_date" xml:space="preserve">
+    <value>تاريخ الإنضمام المتوقع</value>
+  </data>
+  <data name="experience_details" xml:space="preserve">
+    <value>الخبرات</value>
+  </data>
+  <data name="experience_in_years" xml:space="preserve">
+    <value>سنوات الخبرة</value>
+  </data>
+  <data name="experience_letters" xml:space="preserve">
+    <value>Experience Letters</value>
+  </data>
+  <data name="faqs" xml:space="preserve">
+    <value>أسئلة مكررة</value>
+  </data>
+  <data name="filter_by" xml:space="preserve">
+    <value>التصفية حسب</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>الإسم الأول</value>
+  </data>
+  <data name="fluent" xml:space="preserve">
+    <value>بطلاقة</value>
+  </data>
+  <data name="form_submitted" xml:space="preserve">
+    <value>النموذج المقدم</value>
+  </data>
+  <data name="fulltime" xml:space="preserve">
+    <value>متفرغ</value>
+  </data>
+  <data name="full_time" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="getintouch" xml:space="preserve">
+    <value>تواصل معنا</value>
+  </data>
+  <data name="get_directions" xml:space="preserve">
+    <value>اذهب الى وجهتك</value>
+  </data>
+  <data name="grievance_form" xml:space="preserve">
+    <value>Grievance Form</value>
+  </data>
+  <data name="grievance_form1" xml:space="preserve">
+    <value>Grievance Form</value>
+  </data>
+  <data name="highest_qualification_held" xml:space="preserve">
+    <value>أعلى مؤهل دراسي</value>
+  </data>
+  <data name="hindu" xml:space="preserve">
+    <value>هندوسي/هندوسية</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="HTMLDir" xml:space="preserve">
+    <value>rtl</value>
+  </data>
+  <data name="HTMLLang" xml:space="preserve">
+    <value>ar</value>
+  </data>
+  <data name="if_part_time" xml:space="preserve">
+    <value>دوام جزئي</value>
+  </data>
+  <data name="immediately" xml:space="preserve">
+    <value>حالاً</value>
+  </data>
+  <data name="information_detail" xml:space="preserve">
+    <value>Information Detail</value>
+  </data>
+  <data name="information_reference_no" xml:space="preserve">
+    <value>Information Reference No.</value>
+  </data>
+  <data name="information_request" xml:space="preserve">
+    <value>Information Request</value>
+  </data>
+  <data name="information_request_form" xml:space="preserve">
+    <value>Information Request Form</value>
+  </data>
+  <data name="information_section_form" xml:space="preserve">
+    <value>Information Section Form</value>
+  </data>
+  <data name="instagram_feed" xml:space="preserve">
+    <value>صور الانستجرام</value>
+  </data>
+  <data name="islam" xml:space="preserve">
+    <value>مسلم/مسلمة</value>
+  </data>
+  <data name="i_pledge_not_to_use_the_information_provided_or_the_documents_obtained_except_in_legally_prescribed_cases" xml:space="preserve">
+    <value>I pledge not to use the information provided or the documents obtained except in legally prescribed cases.</value>
+  </data>
+  <data name="job_description" xml:space="preserve">
+    <value>Job Description</value>
+  </data>
+  <data name="job_required" xml:space="preserve">
+    <value>الوظيفة المطلوبة</value>
+  </data>
+  <data name="job_type" xml:space="preserve">
+    <value>نوع الوظيفة</value>
+  </data>
+  <data name="joining_date" xml:space="preserve">
+    <value>Joining Date</value>
+  </data>
+  <data name="join_tec_family" xml:space="preserve">
+    <value>انضم الى عائلة شركة المشروعات السياحية</value>
+  </data>
+  <data name="kuwaiti" xml:space="preserve">
+    <value>Kuwaiti</value>
+  </data>
+  <data name="languages" xml:space="preserve">
+    <value>اللغات</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>إسم العائلة</value>
+  </data>
+  <data name="marital_status" xml:space="preserve">
+    <value>الحالة الإجتماعية</value>
+  </data>
+  <data name="married" xml:space="preserve">
+    <value>متزوج/متزوجة</value>
+  </data>
+  <data name="masters" xml:space="preserve">
+    <value>ماجستير</value>
+  </data>
+  <data name="maximum_characters_allowed_400" xml:space="preserve">
+    <value>Maximum Characters Allowed 400</value>
+    <comment>Maximum Characters Allowed 200</comment>
+  </data>
+  <data name="mediagallery" xml:space="preserve">
+    <value>الصور</value>
+  </data>
+  <data name="media_gallery" xml:space="preserve">
+    <value>الصور</value>
+  </data>
+  <data name="menu" xml:space="preserve">
+    <value>القائمة</value>
+  </data>
+  <data name="miss" xml:space="preserve">
+    <value>الأنسة</value>
+  </data>
+  <data name="mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="mobilenumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="mobile_number" xml:space="preserve">
+    <value>Mobile Number</value>
+  </data>
+  <data name="mphil" xml:space="preserve">
+    <value>MPhil</value>
+  </data>
+  <data name="mr" xml:space="preserve">
+    <value>السيد</value>
+  </data>
+  <data name="mrs" xml:space="preserve">
+    <value>السيدة</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>اسم</value>
+  </data>
+  <data name="name_of_the_company" xml:space="preserve">
+    <value>إسم الشركة</value>
+  </data>
+  <data name="nationality" xml:space="preserve">
+    <value>الجنسية</value>
+  </data>
+  <data name="news" xml:space="preserve">
+    <value>أخبار</value>
+  </data>
+  <data name="news_detail" xml:space="preserve">
+    <value>تفاصيل الأخبار</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="nonkuwaiti" xml:space="preserve">
+    <value>Non-Kuwaiti</value>
+  </data>
+  <data name="no_job_vacancies_available_at_the_moment" xml:space="preserve">
+    <value>No Job Vacancies available at the moment</value>
+  </data>
+  <data name="number_of_children" xml:space="preserve">
+    <value>عدد الأولاد</value>
+  </data>
+  <data name="one_month" xml:space="preserve">
+    <value>بعد شهر</value>
+  </data>
+  <data name="optional" xml:space="preserve">
+    <value>إختياري</value>
+  </data>
+  <data name="other" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="others" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="other_languages" xml:space="preserve">
+    <value>لغات أخرى</value>
+  </data>
+  <data name="our_mission" xml:space="preserve">
+    <value>أهدافنا</value>
+  </data>
+  <data name="our_vision" xml:space="preserve">
+    <value>رؤيتنا</value>
+  </data>
+  <data name="parttime" xml:space="preserve">
+    <value>غير متفرغ- دوام جزئي</value>
+  </data>
+  <data name="part_time" xml:space="preserve">
+    <value>Part Time</value>
+  </data>
+  <data name="passport" xml:space="preserve">
+    <value>Passport</value>
+  </data>
+  <data name="passportcivil_id" xml:space="preserve">
+    <value>البطاقة المدنية/جواز السفر</value>
+  </data>
+  <data name="passport_numbercivil_id" xml:space="preserve">
+    <value>البطاقة المدنية \جواز السفر</value>
+  </data>
+  <data name="phd" xml:space="preserve">
+    <value>دكتوراه</value>
+  </data>
+  <data name="place_of_birth" xml:space="preserve">
+    <value>مكان الميلاد</value>
+  </data>
+  <data name="place_of_birth1" xml:space="preserve">
+    <value>مكان الميالد</value>
+  </data>
+  <data name="please_add_your_experience_details" xml:space="preserve">
+    <value>تفاصيل الخبرة</value>
+  </data>
+  <data name="please_enter_a_civil_id" xml:space="preserve">
+    <value>Please enter a Civil ID</value>
+  </data>
+  <data name="please_enter_a_comment" xml:space="preserve">
+    <value>Please enter a comment</value>
+  </data>
+  <data name="please_enter_a_information_reference_no" xml:space="preserve">
+    <value>Please enter a information reference no</value>
+  </data>
+  <data name="please_enter_a_name" xml:space="preserve">
+    <value>Please enter a name</value>
+  </data>
+  <data name="please_enter_a_valid_email" xml:space="preserve">
+    <value>يرجى ادخال البريد الكتروني</value>
+  </data>
+  <data name="please_enter_a_valid_phone_number" xml:space="preserve">
+    <value>يرجى ادخال رقم الهاتف الفعال</value>
+  </data>
+  <data name="please_enter_a_valid_phone_number1" xml:space="preserve">
+    <value>يرجى ادخال رقم الهاتف الفعال</value>
+  </data>
+  <data name="please_enter_category" xml:space="preserve">
+    <value>Please enter category</value>
+  </data>
+  <data name="please_enter_end_date" xml:space="preserve">
+    <value>تاريخ الإنتهاء</value>
+  </data>
+  <data name="please_enter_name_of_the_company" xml:space="preserve">
+    <value>أسم الشركة</value>
+  </data>
+  <data name="please_enter_name_of_the_company1" xml:space="preserve">
+    <value>Please enter name of the company</value>
+  </data>
+  <data name="please_enter_number_of_children" xml:space="preserve">
+    <value>ادخل عدد الأولاد</value>
+  </data>
+  <data name="please_enter_others" xml:space="preserve">
+    <value>أخرى</value>
+  </data>
+  <data name="please_enter_other_languages" xml:space="preserve">
+    <value>اللغات الأخرى</value>
+  </data>
+  <data name="please_enter_passport_numbercivil_id" xml:space="preserve">
+    <value>جواز السفر/البطاقة المدنية</value>
+  </data>
+  <data name="please_enter_passport_number_civil_id" xml:space="preserve">
+    <value>جواز السفر/البطاقة المدنية</value>
+  </data>
+  <data name="please_enter_skills_and_competencies" xml:space="preserve">
+    <value>المهارات والكفاءات</value>
+  </data>
+  <data name="please_enter_start_date" xml:space="preserve">
+    <value>تاريخ البدأ</value>
+  </data>
+  <data name="please_enter_valid_phone_number" xml:space="preserve">
+    <value>Please enter a valid phone number</value>
+  </data>
+  <data name="please_enter_your_first_name" xml:space="preserve">
+    <value>الإسم الأول</value>
+  </data>
+  <data name="please_enter_your_last_name" xml:space="preserve">
+    <value>إسم العائلة</value>
+  </data>
+  <data name="please_enter_your_place_of_birth" xml:space="preserve">
+    <value>مكان الميلاد</value>
+  </data>
+  <data name="please_enter_your_religion" xml:space="preserve">
+    <value>الديانة</value>
+  </data>
+  <data name="please_enter_your_second_name" xml:space="preserve">
+    <value>الإسم الثاني</value>
+  </data>
+  <data name="please_note_that_submission_of_this_form_does_not_constitute_an_automatic_acceptance_for_the_position" xml:space="preserve">
+    <value>يرجى العلم بأن تقديم هذا النموذج لا يعتبر قبولاً للوظيفة.</value>
+  </data>
+  <data name="please_select" xml:space="preserve">
+    <value>يرجى إختيار...</value>
+  </data>
+  <data name="please_select_end_date" xml:space="preserve">
+    <value>تاريخ الإنتهاء</value>
+  </data>
+  <data name="please_select_job_required" xml:space="preserve">
+    <value>الوظيفة المطلوبة</value>
+  </data>
+  <data name="please_select_start_date" xml:space="preserve">
+    <value>تاريخ البدأ</value>
+  </data>
+  <data name="please_select_your_arabic_fluency_level" xml:space="preserve">
+    <value>مستوى الطلاقة في اللغة العربية</value>
+  </data>
+  <data name="please_select_your_country_of_nationality" xml:space="preserve">
+    <value>الجنسية</value>
+  </data>
+  <data name="please_select_your_date_of_birth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="please_select_your_english_fluency_level" xml:space="preserve">
+    <value>مستوى الطلاقة في اللغة الإنجليزية</value>
+  </data>
+  <data name="please_select_your_experience_in_years" xml:space="preserve">
+    <value>عدد سنوات الخبرة</value>
+  </data>
+  <data name="please_select_your_highest_qualification_held" xml:space="preserve">
+    <value>أعلى مؤهل حاصل عليه</value>
+  </data>
+  <data name="please_select_your_marital_status" xml:space="preserve">
+    <value>الحالة الإجتماعية</value>
+  </data>
+  <data name="please_select_your_religion" xml:space="preserve">
+    <value>الديانة</value>
+  </data>
+  <data name="please_select_your_title" xml:space="preserve">
+    <value>Please select your title</value>
+  </data>
+  <data name="please_upload_a_document" xml:space="preserve">
+    <value>يرجى تحميل مستند</value>
+  </data>
+  <data name="please_upload_the_document_either_of_docxrtfdocpdfjpegjpgpng_formats" xml:space="preserve">
+    <value>Please upload the document either of  *.docx,*.rtf,*.doc,*.pdf,*.jpeg,*.jpg,*.png formats</value>
+  </data>
+  <data name="please_upload_your_accredited_educational_qualification" xml:space="preserve">
+    <value>يرجى إرفاق المؤهل العلمي المعتمد</value>
+  </data>
+  <data name="please_upload_your_passportcivil_id" xml:space="preserve">
+    <value>يرجى إرفاق جواز السفر/البطاقة المدنية</value>
+  </data>
+  <data name="privacy_policy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="professional_information" xml:space="preserve">
+    <value>المعلومات المهنية</value>
+  </data>
+  <data name="proficient" xml:space="preserve">
+    <value>مُتقن</value>
+  </data>
+  <data name="projects" xml:space="preserve">
+    <value>projects</value>
+  </data>
+  <data name="pro_application_document" xml:space="preserve">
+    <value>Pro Application Document</value>
+  </data>
+  <data name="pro_grievance_document" xml:space="preserve">
+    <value>Pro Grievance Document</value>
+  </data>
+  <data name="qualifications_authenticated" xml:space="preserve">
+    <value>Qualifications (Authenticated)</value>
+  </data>
+  <data name="read_more" xml:space="preserve">
+    <value>اقرأ المزيد</value>
+  </data>
+  <data name="religion" xml:space="preserve">
+    <value>الديانة</value>
+  </data>
+  <data name="remove" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+  <data name="retired" xml:space="preserve">
+    <value>متقاعد</value>
+  </data>
+  <data name="secondary" xml:space="preserve">
+    <value>ثانوية</value>
+  </data>
+  <data name="second_name" xml:space="preserve">
+    <value>الإسم الثاني</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="separated" xml:space="preserve">
+    <value>Separated</value>
+  </data>
+  <data name="single" xml:space="preserve">
+    <value>أعزب/عزباء</value>
+  </data>
+  <data name="skills_and_competencies" xml:space="preserve">
+    <value>المهارات والكفاءات</value>
+  </data>
+  <data name="social_insuarance_certificate" xml:space="preserve">
+    <value>Social Insuarance Certificate</value>
+  </data>
+  <data name="start_date" xml:space="preserve">
+    <value>تاريخ البدء</value>
+  </data>
+  <data name="submitting_this_form_does_not_mean_that_you_are_accepted_for_the_job" xml:space="preserve">
+    <value>تقديمك لهذا الطلب ال يعني بالضرورة قبولك للوظيفة.</value>
+  </data>
+  <data name="tec" xml:space="preserve">
+    <value>شركة المشروعات السياحية</value>
+  </data>
+  <data name="telephone" xml:space="preserve">
+    <value>الهاتف</value>
+  </data>
+  <data name="terms_and_conditions" xml:space="preserve">
+    <value>Terms and Conditions</value>
+  </data>
+  <data name="thank_you_for_submitting_the_form" xml:space="preserve">
+    <value>شكراً، تم استلام طلبك</value>
+  </data>
+  <data name="the_right_to_access_information" xml:space="preserve">
+    <value>The Right to Access Information</value>
+  </data>
+  <data name="three_months" xml:space="preserve">
+    <value>بعد ثلاث شهور</value>
+  </data>
+  <data name="timings" xml:space="preserve">
+    <value>الأوقات</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>اللقب</value>
+  </data>
+  <data name="upcoming_attractions" xml:space="preserve">
+    <value>وجهات سياحية قيد الإنشاء</value>
+  </data>
+  <data name="upcoming_projects" xml:space="preserve">
+    <value>مشاريع قيد الإنشاء</value>
+  </data>
+  <data name="upload_cv" xml:space="preserve">
+    <value>السيرة الذاتية</value>
+  </data>
+  <data name="viewall" xml:space="preserve">
+    <value>عرض الكل</value>
+  </data>
+  <data name="we_are_sorry_the_job_applications_for_the_company_are_not_available_at_the_moment" xml:space="preserve">
+    <value> .نأسف، لا يوجد وظائف متاحة في الشركة بالوقت الحالي</value>
+  </data>
+  <data name="why_did_you_choose_this_as_part_time_job" xml:space="preserve">
+    <value>Why did you choose this as part time job?</value>
+  </data>
+  <data name="widowed" xml:space="preserve">
+    <value>أرمل/أرملة</value>
+  </data>
+  <data name="work_in_other_company" xml:space="preserve">
+    <value>أعمل في شركة أخرى </value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="your_reference_no_is" xml:space="preserve">
+    <value>Your reference no. is:</value>
+  </data>
+  <data name="add_new_job_required" xml:space="preserve">
+    <value>إضافة الوظيفة الجديدة المطلوبة</value>
+  </data>
+  <data name="edit_job_required" xml:space="preserve">
+    <value>تعديل الوظيفة المطلوبة</value>
+  </data>
+  <data name="career_detail" xml:space="preserve">
+    <value>التفاصيل المهنية</value>
+  </data>
+  <data name="no_vacancies_available" xml:space="preserve">
+    <value>لا توجد وظائف شاغرة</value>
+  </data>
+  <data name="sorry_there_is_no_job_openings_currently_available" xml:space="preserve">
+    <value>عذراً، لا توجد وظائف متاحة حالياً.</value>
+  </data>
+  <data name="loading" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
+</root>

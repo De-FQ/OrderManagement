@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@{
+    var requestCultureFeature = System.Globalization.CultureInfo.CurrentCulture.Name;
+}
+<head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+ @*   <meta name="keywords" content="access-denied" />
+    <meta name="description" content="access-denied">
+    <meta name="author" content="access-denied">*@
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/fav/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    @if (requestCultureFeature != "ar")
+    {
+        <link rel="stylesheet" href="~/assets/css/theme-rtl.css" asp-append-version="true">
+        
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/assets/css/theme.min.css" asp-append-version="true">
+    }
+    <!-- Head Libs -->
+    <script src="/assets/vendor/js/jquery.js"></script>
+    <script src="/assets/vendor/js/modernizr.js"></script>
+    <!-- Developer style-->
+    
+    <link rel="stylesheet" href="~/developer/css/developer.css" asp-append-version="true" />
+</head>
+
+<body> 
+    <div class="position-fixed vw-100 vh-100 top-0 start-0 bg-light loader-container" style="z-index: 999999; --bs-bg-opacity: .5;display: none;">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">@SharedHtmlLocalizer["loading"]</span>
+            </div>
+            <h4>@SharedHtmlLocalizer["loading"]</h4>
+        </div>
+    </div>
+    @RenderBody()
+    <div class="toast-container" style="z-index:1000; position: absolute;"></div>
+   
+    <script src="/assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/js/jquery.browser.mobile.js"></script>
+    <script src="/assets/vendor/js/popper.min.js"></script> 
+    @*<script src="/assets/vendor/js/bootstrap-datepicker.js"></script>*@
+    <!-- Theme Base, Components and Settings -->
+    <script src="/assets/vendor/js/theme.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <script src="~/developer/js/app/site.js" asp-append-version="true"></script>
+    <environment include="Development">
+        <script src="~/developer/js/App/web.development.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/developer/js/App/web.production.js" asp-append-version="true"></script>
+    </environment>
+
+    <script type="text/javascript">
+        function getLang() {
+            var lang = '@requestCultureFeature'
+            return lang;
+        }
+    </script>
+</body>
+</html>

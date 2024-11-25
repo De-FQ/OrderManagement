@@ -1,0 +1,55 @@
+﻿@model Utility.Models.Admin.UserManagement.AdminUserPermissionModel
+@{
+    var title = @SharedHtmlLocalizer["permissions"].Value;
+    var role_permission = @SharedHtmlLocalizer["role_permissions"].Value;
+
+    Model.Title = title;
+    Model.AddEditPath = "/UserMgmt/Permission/AddEdit";
+}
+@await Html.PartialAsync("_PageHeaderPartial", title)
+
+<section class="card mb-3">
+    @await Html.PartialAsync("_CommonTableHeaderPartial", @Model)
+
+    <div class="card-body ">
+        <table class="table  align-middle mobile-optimised datatable-default-" id="datatable-default-">
+            <thead>
+                <tr>
+                    <th data-priority="1" class="text-left">@SharedHtmlLocalizer["s_no"]</th>
+                    <th data-priority="2" class="text-left">@SharedHtmlLocalizer["status"]</th>
+                    <th data-priority="3" class="text-left">@SharedHtmlLocalizer["display_order"]</th>
+                    <th data-priority="4" class="text-left">@SharedHtmlLocalizer["permission_name"]</th>
+                    <th data-priority="5" class="text-left">@SharedHtmlLocalizer["permission_name_ar"]</th>
+                    <th data-priority="6" class="text-left">@SharedHtmlLocalizer["navigation_url"]</th>
+                    <th data-priority="7" class="text-left">@SharedHtmlLocalizer["icon"]</th>
+                    <th data-priority="8" class="text-left">@SharedHtmlLocalizer["show_in_menu"]</th>
+                    @await Html.PartialAsync("_CommonTableColumnsPartial")
+                </tr>
+            </thead>
+            <tbody class="">
+            </tbody>
+        </table>
+    </div>
+</section>
+<div class="modal fade" id="edit_permissions" tabindex="-1" role="dialog" aria-labelledby="edit_permissionsTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@role_permission</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <br />
+                <ul class="permissions-list" style="padding: 0;">
+                </ul>
+                <br />
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedHtmlLocalizer["close"]</button>
+                <button type="button" class="btn btn-primary" onclick="saveRolePermission()">@SharedHtmlLocalizer["save"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/developer/js/UserMgmt/Permission/Permission_Datatable.js" asp-append-version="true"></script>

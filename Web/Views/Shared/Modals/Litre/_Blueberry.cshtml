@@ -1,0 +1,30 @@
+﻿<!-- blueberry Ice Cream Modal -->
+<div class="modal fade" id="blueberryModal" tabindex="-1" aria-labelledby="blueberryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
+        <div class="modal-content custom-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="blueberryModalLabel">Blue Berry Ice Cream</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="big-tub-container">
+                    <img src="~/assets/img/tub/large/blueberry.png" alt="Blue Berry Ice Cream" class="img-fluid big-tub" />
+                </div>
+                <div class="small-tub-container">
+                    <img src="~/assets/img/tub/small/blueberry.png" alt="Blue Berry Ice Cream" class="img-fluid small-tub" />
+                </div>
+                <p class="mt-3" style="margin-left: 120px;">1 Litre Pack</p>
+                <div class="form-group">
+                    <label for="numBlueBerry">No. of Packs     =</label>
+                    <input type="number" id="numBlueBerry" class="form-control small-input" value="1" min="1" oninput="calculateBlueBerryPrice()" />
+                </div>
+                <p>Litre Pack Price: <span id="totalBlueBerryPrice">1000</span> Rs.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add to Order</button>
+            </div>
+        </div>
+    </div>
+</div>

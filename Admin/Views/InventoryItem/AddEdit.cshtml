@@ -1,0 +1,91 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["Edit"].Value : @SharedHtmlLocalizer["Add"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                </div>
+            </header>
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="supplierList" class="form-label">@SharedHtmlLocalizer["Supplier"]<span class="text-danger">*</span> </label>
+                            <select class="form-select" name="supplierList" id="supplierList" dir="ltr" aria-describedby="Supplier">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="inventoryItemName" class="form-label">@SharedHtmlLocalizer["Name"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="inventoryItemName" id="inventoryItemName" aria-describedby="InventoryItemName" placeholder="Inventory Item Name" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="description" class="form-label">@SharedHtmlLocalizer["Description"]<span class="text-danger">*</span></label>
+                            <textarea class="form-control" name="description" id="description" aria-describedby="Description" placeholder="Description"></textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="unit" class="form-label">@SharedHtmlLocalizer["Unit"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="unit" id="unit" aria-describedby="Unit" placeholder="Unit" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="unitCost" class="form-label">@SharedHtmlLocalizer["Net Cost"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="unitCost" id="unitCost" aria-describedby="UnitCost" placeholder="Unit Cost" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="quantity" class="form-label">@SharedHtmlLocalizer["Quantity"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="quantity" id="quantity" aria-describedby="Quantity" placeholder="Quantity" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="costPrice" class="form-label">@SharedHtmlLocalizer["Total Cost"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="costPrice" id="costPrice" aria-describedby="CostPrice" placeholder="Cost Price" value="" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["Back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+    /* Add a green text color and a checkmark when the requirements are right */
+    #message .valid {
+        color: green;
+    }
+
+        #message .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+    /* Add a red text color and an "x" when the requirements are wrong */
+    #message .invalid {
+        color: red;
+    }
+
+        #message .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+</style>
+
+<script src="~/developer/js/InventoryManagement/InventoryItem/InventoryItem_CRUD.js" asp-append-version="true"></script>

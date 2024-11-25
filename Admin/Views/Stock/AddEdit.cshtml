@@ -1,0 +1,77 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["Edit"].Value : @SharedHtmlLocalizer["Add"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                </div>
+            </header>
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" autocomplete="off">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="inventoryItemList" class="form-label">@SharedHtmlLocalizer["Inventory Item"]<span class="text-danger">*</span> </label>
+                            <select class="form-select" name="inventoryItemList" id="inventoryItemList" dir="ltr" aria-describedby="InventoryItem">
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="unit" class="form-label">@SharedHtmlLocalizer["Unit"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="unit" id="unit" aria-describedby="Unit" placeholder="Unit" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="netUnitCost" class="form-label">@SharedHtmlLocalizer["Net Cost"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="netUnitCost" id="netUnitCost" aria-describedby="NetUnitCost" placeholder="Net Unit Cost" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="companyCostMargin" class="form-label">@SharedHtmlLocalizer["Company Margin"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="companyCostMargin" id="companyCostMargin" aria-describedby="CompanyCostMargin" placeholder="Company Cost Margin" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="oldQuantity" class="form-label">@SharedHtmlLocalizer["Old Quantity"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="oldQuantity" id="oldQuantity" aria-describedby="OldQuantity" placeholder="Old Quantity" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="newQuantity" class="form-label">@SharedHtmlLocalizer["New Quantity"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="newQuantity" id="newQuantity" aria-describedby="NewQuantity" placeholder="New Quantity" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="totalQuantity" class="form-label">@SharedHtmlLocalizer["Total Quantity"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="totalQuantity" id="totalQuantity" aria-describedby="TotalQuantity" placeholder="Total Quantity" value="" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="totalUnitNetCost" class="form-label">@SharedHtmlLocalizer["Total Net Cost"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="totalUnitNetCost" id="totalUnitNetCost" aria-describedby="TotalUnitNetCost" placeholder="Total Unit Net Cost" value="" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="totalUnitCompanyPrice" class="form-label">@SharedHtmlLocalizer["Total Cost With Company Margin"]<span class="text-danger">*</span></label>
+                            <input type="number" dir="ltr" class="form-control" name="totalUnitCompanyPrice" id="totalUnitCompanyPrice" aria-describedby="TotalUnitCompanyPrice" placeholder="Total Unit Company Price" value="" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="btnSave" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["Back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/developer/js/InventoryManagement/Stock/Stock_CRUD.js" asp-append-version="true"></script>

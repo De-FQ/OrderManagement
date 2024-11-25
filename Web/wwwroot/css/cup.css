@@ -1,0 +1,49 @@
+﻿body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.ice-cream-flavors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+    .ice-cream-flavors .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .ice-cream-flavors .col-md-4 {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 30px; /* Optional: Adds space between rows */
+    }
+
+.flavor {
+    padding: 10px; /* Optional: Adds padding inside each flavor box */
+    border-radius: 5px; /* Optional: Adds rounded corners to each flavor box */
+    text-align: center; /* Ensures text is centered */
+}
+
+/*.flavor {
+    margin: 15px;
+    text-align: center;
+}*/
+
+    .flavor img {
+        width: 150px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .flavor p {
+        margin-left:8px;
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }

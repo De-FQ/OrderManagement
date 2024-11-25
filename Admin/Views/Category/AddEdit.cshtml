@@ -1,0 +1,78 @@
+﻿@model BaseModel
+@{
+    var headerTitle = Model.Guid != Guid.Empty ? @SharedHtmlLocalizer["Edit Category"].Value : @SharedHtmlLocalizer["Add Category"].Value;
+}
+@await Html.PartialAsync("_PageHeaderPartial", @headerTitle)
+
+<div class="row">
+    <div class="col">
+        <section class="card mb-3">
+            <header class="card-header d-flex justify-content-between align-items-center p-3 border-secondary body-bg-secondary">
+                <h2 class="card-title text-primary">@headerTitle</h2>
+                <div class="card-actions d-flex align-items-center position-static top-0 end-0">
+                    <input type="file" id="importExcelFile" class="form-control me-2" accept=".xlsx, .xls">
+                    <button type="button" class="btn btn-info" onclick="importCategoriesFromExcel()">
+                        @SharedHtmlLocalizer["Category Excel"]
+                    </button>
+                </div>
+            </header>
+            <div class="card-body">
+                <form method="post" id="dataForm" name="dataForm" enctype="multipart/form-data" action="/Category/AddEdit" autocomplete="off">
+                    @await Html.PartialAsync("_FormHiddenFieldsPartial", Model)
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="name" class="form-label">@SharedHtmlLocalizer["Category Name"]<span class="text-danger">*</span></label>
+                            <input type="text" dir="ltr" class="form-control" name="name" id="name" value="@Model.Name" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="discountPercentage" class="form-label">@SharedHtmlLocalizer["Discount Percentage"]</label>
+                            <input type="number" class="form-control" id="discountPercentage" name="discountPercentage" min="0" max="100" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="uploadImage" class="form-label">@SharedHtmlLocalizer["Upload Image"]<span class="text-danger">*</span></label>
+                            
+                            <input type="file" class="form-control" id="uploadImage" name="uploadImage" accept="image/*">
+                            <small class="form-text text-muted">@SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_100x100_px_in_jpg_or_png_format"]</small>
+                            <div class="invalid-feedback">
+                                @SharedHtmlLocalizer["for_consistency_purposes_please_upload_image_at_the_size_100x100_px_in_jpg_or_png_format"]
+                            </div>
+                            <div class="col-2 d-flex flex-column align-items-center justify-content-center">
+                                <img src="/assets/img/default.png" class="img-fluid preview-image" name="imagePreview" id="imagePreview">
+                                <p class="text-muted text-center mb-1 mt-2">@SharedHtmlLocalizer["Preview"]</p>
+                            </div>
+                            <img id="previewImage" src="@Model.ImageName" class="img-thumbnail mt-2" alt="Thumbnail" style="display:@(Model.ImageName != null ? "block" : "none");">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                       
+                        <div class="col-12 col-lg-4 mb-3">
+                            <label for="description" class="form-label">@SharedHtmlLocalizer["Description"]<span class="text-danger">*</span></label>
+                            <textarea class="summernote dir-ltr" dir="ltr" name="description" id="description">@Model.Description</textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-12 col-lg-4 mb-3">
+                            <div class="form-check">
+                                <label for="discountActive" class="form-check-label">@SharedHtmlLocalizer["Activate Discount"]<span class="text-danger">*</span></label>
+                                <input type="checkbox" class="form-check-input" id="discountActive" name="discountActive" @(Model.DiscountActive ? "checked" : "")>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-lg save-btn fw-bold">@SharedHtmlLocalizer["Save"]</button>
+                            <button type="button" class="btn btn-warning" onclick="history.go(-1)">@SharedHtmlLocalizer["Back"]</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/developer/js/Categories/Category/Category_CRUD.js" asp-append-version="true"></script>

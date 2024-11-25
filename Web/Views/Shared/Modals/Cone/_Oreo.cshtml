@@ -1,0 +1,44 @@
+﻿<!-- oreoModal.cshtml -->
+<div class="modal fade" id="oreoModal" tabindex="-1" aria-labelledby="oreoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 900px;">
+        <div class="modal-content custom-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="oreoModalLabel">Oreo Ice Cream</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="big-tub-container" style="position: relative;">
+                    <img src="~/assets/img/cone/large/oreo.png" alt="Oreo Ice Cream" class="img-fluid big-tub" />
+                    <div class="flavour-label modalheadingstyle">
+                        Oreo <br>Ice Cream
+                    </div>
+                </div>
+                <div class="small-tub-container">
+                    <img src="~/assets/img/cone/oreo.png" alt="Oreo Ice Cream" class="img-fluid small-tub" />
+                    <img src="~/assets/img/cone/double/oreo.png" alt="Oreo Ice Cream" class="img-fluid small-tubs" />
+                </div>
+                <div class="scoop-section">
+                    <div class="scoop-item">
+                        <p>Single Scoop</p>
+                        <input type="number" id="singleOreoScoop" class="form-control small-input" value="0" min="0" oninput="calculateOreoPrice()" />
+                        <p>Single Scoop Price:<br> <span id="singleOreoScoopPrice">00</span> Rs.</p>
+                    </div>
+                    <div class="scoop-items">
+                        <p>Double Scoop</p>
+                        <input type="number" id="doubleOreoScoop" class="form-control small-input" value="0" min="0" oninput="calculateOreoPrice()" />
+                        <p>Double Scoop Price:<br> <span id="doubleOreoScoopPrice">00</span> Rs.</p>
+                    </div>
+                </div>
+                <div class="price-section">
+                    <h2>Total Price: <span id="totalOreoPrice">00</span> Rs.</h2>
+                    <h2>Total Quantity: <span id="totalOreoQuantity">0</span></h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="addToOreoOrder()">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
