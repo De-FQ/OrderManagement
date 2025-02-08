@@ -543,7 +543,7 @@ function confirmOrder() {
         <p style="text-align: right; color: #000; font-size: 16px;"><strong>Change to Return:</strong> ${changeToReturn}</p>
         <div style="border-bottom: 1px dashed #000; margin: 10px 0;"></div>
         <p style="text-align: center; font-style: italic; color: #000; font-size: 16px;"><strong>Thank you for your purchase!</strong></p>
-        <p style="text-align: center; margin-top: 20px; font-size: 12px; color: #000;"><strong>Powered By:</strong> Global Techno Soft</p>
+        <p style="text-align: center; margin-top: 20px; font-size: 12px; color: #000;"><strong>Powered By:</strong> </p>
         <p style="text-align: center; font-size: 12px; color: #000;">Contact: 03063888546</p>
     </div>
 `.replace(/\n\s*/g, '');

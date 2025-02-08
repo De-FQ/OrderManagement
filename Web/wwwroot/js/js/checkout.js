@@ -311,7 +311,7 @@
 //            <p><strong>Thank you for your purchase!</strong></p>
 //            <p style="margin-top: 20px;"><strong>Powered By:</strong></p>
 //            <div style="border-top: 1px solid black; margin-top: 5px; margin-bottom: 5px;"></div>
-//            <p>Global Techno Soft</p>
+//            <p></p>
 //            <div style="border-top: 1px solid black; margin-top: 5px; margin-bottom: 5px;"></div>
 //            <p>Contact: 03063888546</p>
 //            <p>Visit: <img src="${qrCodeImg}" alt="QR Code" style="width: 50px; height: 50px; vertical-align: middle;"/> <a href="${qrCodeUrl}" target="_blank">${qrCodeUrl}</a></p>
