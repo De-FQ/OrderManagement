@@ -16,7 +16,7 @@ namespace Web.Extensions
             }
 
             //allowed for website hosting domain url
-            if (req.Host.Value.StartsWith("admin.gtechnosoft.com", StringComparison.OrdinalIgnoreCase))
+            if (req.Host.Value.StartsWith("admin.faisal.com", StringComparison.OrdinalIgnoreCase))
             {
                 context.Result = RuleResult.ContinueRules;
                 return;

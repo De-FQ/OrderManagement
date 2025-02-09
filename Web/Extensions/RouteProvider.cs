@@ -13,13 +13,7 @@
         {
 			endpointRouteBuilder.MapControllerRoute(
 				 name: "default",
-				 pattern: "{controller=Home}/{action=Index}/{id?}" );
-
-            //endpointRouteBuilder.MapControllerRoute(
-            //      name: "PlaceOrder",
-            //      pattern: "PlaceOrder",
-            //      defaults: new { controller = "Categories", action = "PlaceOrder" });
-
+				 pattern: "{controller=Home}/{action=Category}/{id?}" );
         }
 
 

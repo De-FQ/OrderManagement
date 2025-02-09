@@ -6,19 +6,13 @@ using Utility.API;
 using Web.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddSession();
-//.AddRazorRuntimeCompilation();
 builder.Services.AddAuthenticationCookieService();
 builder.Services.AddLocalizationService();
 builder.Services.AddDependencyInjectionService(builder.Configuration);
 Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
-
-///for Dynamic PDF Generation
-//builder.Services.AddRazorTemplating();
-//builder.AddJsReport();
-
 
 builder.AddSeriLogger();
 var app = builder.Build();
@@ -34,13 +28,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-////start for localized, if you forget, 2 language will show up in view 
 app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
-//end for localized
 
-
-//for cookie encryption
-//app.UseCookiePolicy( new CookiePolicyOptions {MinimumSameSitePolicy = SameSiteMode.Strict});
 
 app.UseAuthentication();
 app.UseAuthorization();

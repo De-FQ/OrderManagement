@@ -182,13 +182,6 @@ namespace Web.Extensions
 
             Log.Logger = new Serilog.LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
-            //    .MinimumLevel.Information()
-            //    .WriteTo.Console()
-            //    .WriteTo.File("logs/applog.txt", rollingInterval: RollingInterval.Day)
-            //    .CreateLogger();
-            //var logger = app.Services.GetRequiredService<ILoggerManager>();
-            //app.ConfigureExceptionHandler(logger);
-
             #endregion
         }
          
